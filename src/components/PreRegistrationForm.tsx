@@ -43,14 +43,15 @@ export default function PreRegistrationForm({
   }
 
   return (
-    <div className="bg-boho-wheat/5 p-8 border border-boho-wheat/40 max-w-2xl mx-auto">
-      <h3 className="text-3xl font-bold text-boho-navy mb-4 uppercase tracking-wide">
+    <div className="bg-white p-8 border-4 border-boho-navy rounded-sm shadow-[8px_8px_0px_#4A6A8A] max-w-2xl mx-auto relative overflow-hidden">
+      <div className="absolute top-0 left-0 w-full h-2 bg-boho-gold"></div>
+      <h3 className="text-3xl font-bold text-boho-navy mt-2 mb-4 uppercase tracking-wide">
         Pre-register for {courseName}
       </h3>
-      <p className="text-boho-navy/80 mb-8 font-sans">
+      <p className="text-boho-navy/80 mb-8 font-sans font-medium">
         Join the waitlist for our upcoming cohort in Afton, WY.
         {showFeeNotice && (
-          <span className="block mt-2 font-semibold text-boho-gold">
+          <span className="block mt-2 font-bold text-boho-gold tracking-wide">
             Note: An RSVP fee of $10 will be required to secure your spot once registration
             officially opens.
           </span>
@@ -60,7 +61,10 @@ export default function PreRegistrationForm({
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-boho-navy mb-2">
+            <label
+              htmlFor="name"
+              className="block text-sm font-bold text-boho-navy mb-2 uppercase tracking-widest"
+            >
               Full Name
             </label>
             <input
@@ -68,11 +72,14 @@ export default function PreRegistrationForm({
               id="name"
               name="name"
               required
-              className="w-full px-4 py-2 border border-boho-wheat rounded-sm focus:ring-boho-denim focus:border-boho-denim outline-none font-sans"
+              className="w-full px-4 py-3 border-2 border-boho-navy rounded-sm focus:ring-0 focus:border-boho-gold outline-none transition-colors font-sans bg-boho-wheat/10"
             />
           </div>
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-boho-navy mb-2">
+            <label
+              htmlFor="email"
+              className="block text-sm font-bold text-boho-navy mb-2 uppercase tracking-widest"
+            >
               Email Address
             </label>
             <input
@@ -80,20 +87,23 @@ export default function PreRegistrationForm({
               id="email"
               name="email"
               required
-              className="w-full px-4 py-2 border border-boho-wheat rounded-sm focus:ring-boho-denim focus:border-boho-denim outline-none font-sans"
+              className="w-full px-4 py-3 border-2 border-boho-navy rounded-sm focus:ring-0 focus:border-boho-gold outline-none transition-colors font-sans bg-boho-wheat/10"
             />
           </div>
         </div>
 
         <div>
-          <label htmlFor="role" className="block text-sm font-medium text-boho-navy mb-2">
+          <label
+            htmlFor="role"
+            className="block text-sm font-bold text-boho-navy mb-2 uppercase tracking-widest"
+          >
             I am a...
           </label>
           <select
             id="role"
             name="role"
             required
-            className="w-full px-4 py-2 border border-boho-wheat rounded-sm focus:ring-boho-denim focus:border-boho-denim outline-none font-sans bg-white"
+            className="w-full px-4 py-3 border-2 border-boho-navy rounded-sm focus:ring-0 focus:border-boho-gold outline-none transition-colors font-sans bg-white"
           >
             <option value="">Select an option</option>
             <option value="student">Student / Young Professional</option>
@@ -104,21 +114,24 @@ export default function PreRegistrationForm({
         </div>
 
         <div>
-          <label htmlFor="interest" className="block text-sm font-medium text-boho-navy mb-2">
+          <label
+            htmlFor="interest"
+            className="block text-sm font-bold text-boho-navy mb-2 uppercase tracking-widest"
+          >
             Why are you interested in this course?
           </label>
           <textarea
             id="interest"
             name="interest"
             rows={4}
-            className="w-full px-4 py-2 border border-boho-wheat rounded-sm focus:ring-boho-denim focus:border-boho-denim outline-none resize-none font-sans"
+            className="w-full px-4 py-3 border-2 border-boho-navy rounded-sm focus:ring-0 focus:border-boho-gold outline-none resize-none transition-colors font-sans bg-boho-wheat/10"
           ></textarea>
         </div>
 
         <button
           type="submit"
           disabled={status === 'submitting' || status === 'success'}
-          className="w-full bg-boho-navy text-white py-4 rounded-sm font-barlow text-lg tracking-wider uppercase hover:bg-boho-gold transition-colors disabled:opacity-70"
+          className="w-full bg-boho-gold border-2 border-boho-navy text-boho-navy py-4 rounded-sm font-barlow text-xl tracking-wider uppercase font-bold hover:bg-transparent transition-colors disabled:opacity-70 shadow-[4px_4px_0px_#0A192F] hover:shadow-none hover:translate-y-1 hover:translate-x-1"
         >
           {status === 'submitting'
             ? 'Submitting...'

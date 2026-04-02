@@ -11,7 +11,12 @@
 }
 
 body {
-  @apply bg-white text-boho-navy font-sans antialiased;
+  @apply bg-boho-wheat/20 text-boho-navy font-sans antialiased;
+}
+
+.bg-pattern {
+  background-image: radial-gradient(#c5a059 1px, transparent 1px);
+  background-size: 24px 24px;
 }
 
 h1,

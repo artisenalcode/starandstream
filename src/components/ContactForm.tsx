@@ -46,11 +46,15 @@ export default function ContactForm() {
 
         <form
           onSubmit={handleSubmit}
-          className="bg-white p-8 rounded-sm shadow-sm border-2 border-boho-wheat"
+          className="bg-white p-8 rounded-sm shadow-[8px_8px_0px_#4A6A8A] border-4 border-boho-navy relative overflow-hidden"
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          <div className="absolute top-0 left-0 w-full h-2 bg-boho-gold"></div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 pt-4">
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-boho-navy mb-2">
+              <label
+                htmlFor="name"
+                className="block text-sm font-bold text-boho-navy mb-2 uppercase tracking-widest"
+              >
                 Name
               </label>
               <input
@@ -58,11 +62,14 @@ export default function ContactForm() {
                 id="name"
                 name="name"
                 required
-                className="w-full px-4 py-2 border-2 border-boho-wheat rounded-sm focus:ring-0 focus:border-boho-gold outline-none transition-colors"
+                className="w-full px-4 py-3 border-2 border-boho-navy rounded-sm focus:ring-0 focus:border-boho-gold outline-none transition-colors font-sans bg-boho-wheat/10"
               />
             </div>
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-boho-navy mb-2">
+              <label
+                htmlFor="email"
+                className="block text-sm font-bold text-boho-navy mb-2 uppercase tracking-widest"
+              >
                 Email
               </label>
               <input
@@ -70,13 +77,16 @@ export default function ContactForm() {
                 id="email"
                 name="email"
                 required
-                className="w-full px-4 py-2 border-2 border-boho-wheat rounded-sm focus:ring-0 focus:border-boho-gold outline-none transition-colors"
+                className="w-full px-4 py-3 border-2 border-boho-navy rounded-sm focus:ring-0 focus:border-boho-gold outline-none transition-colors font-sans bg-boho-wheat/10"
               />
             </div>
           </div>
 
-          <div className="mb-6">
-            <label htmlFor="message" className="block text-sm font-medium text-boho-navy mb-2">
+          <div className="mb-8">
+            <label
+              htmlFor="message"
+              className="block text-sm font-bold text-boho-navy mb-2 uppercase tracking-widest"
+            >
               Message
             </label>
             <textarea
@@ -84,14 +94,14 @@ export default function ContactForm() {
               name="message"
               rows={5}
               required
-              className="w-full px-4 py-2 border-2 border-boho-wheat rounded-sm focus:ring-0 focus:border-boho-gold outline-none transition-colors resize-none"
+              className="w-full px-4 py-3 border-2 border-boho-navy rounded-sm focus:ring-0 focus:border-boho-gold outline-none transition-colors resize-none font-sans bg-boho-wheat/10"
             ></textarea>
           </div>
 
           <button
             type="submit"
             disabled={status === 'submitting' || status === 'success'}
-            className="w-full bg-boho-navy text-white py-4 rounded-sm font-barlow text-lg tracking-wider uppercase hover:bg-boho-gold transition-colors disabled:opacity-70 shadow-sm"
+            className="w-full bg-boho-gold border-2 border-boho-navy text-boho-navy py-4 rounded-sm font-barlow text-xl tracking-wider uppercase font-bold hover:bg-transparent transition-colors disabled:opacity-70 shadow-[4px_4px_0px_#0A192F] hover:shadow-none hover:translate-y-1 hover:translate-x-1"
           >
             {status === 'submitting'
               ? 'Sending...'
