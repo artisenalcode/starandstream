@@ -7,7 +7,8 @@ services:
     volumes:
       - /data/code/starandstream.com:/app:ro
     env_file:
-      - /data/code/starandstream.com/.env
+      - path: /data/code/starandstream.com/.env
+        required: false
     environment:
       - HOST=0.0.0.0
       - PORT=4322

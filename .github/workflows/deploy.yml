@@ -48,7 +48,7 @@ jobs:
             
             # Attempt to request a certificate if it doesn't already exist
             if [ ! -d "/data/certbot/conf/live/starandstream.com" ]; then
-                podman exec certbot certbot certonly --webroot -w /var/www/certbot -d starandstream.com -d www.starandstream.com --non-interactive --agree-tos -m contact@starandstream.com || true
+                podman exec certbot certbot certonly --webroot -w /var/www/certbot -d starandstream.com --non-interactive --agree-tos -m contact@starandstream.com || true
             fi
             
             # Reload Nginx to apply changes
