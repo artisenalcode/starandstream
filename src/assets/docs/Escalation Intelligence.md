@@ -14,6 +14,7 @@ Wed, 04 Mar 2026 11:42:31 AM -0700
 "Alvin Tolentino"<alvin@starandstream.com>
 "Alvin Tolentino"<codegeek@outlook.com>
 TLSLearn more
+
 # Escalation Intelligence
 
 ### Anger management for real-world conflict—learn how to stay clear, functional, and in control when escalation begins.
