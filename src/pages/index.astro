@@ -2,33 +2,118 @@
 import Layout from '../layouts/Layout.astro';
 import Services from '../components/Services';
 import ContactForm from '../components/ContactForm';
+import { Image } from 'astro:assets';
+import logoImage from '../assets/logo.png';
 ---
 
 <Layout title="Home">
-  <main>
-    <section class="min-h-screen flex items-center justify-center bg-boho-sand/20">
-      <div class="max-w-4xl mx-auto px-4 text-center">
-        <h1 class="text-5xl md:text-7xl font-bold text-boho-brown mb-6">Star and Stream</h1>
-        <p class="text-xl md:text-2xl text-boho-dark/80 mb-10 max-w-2xl mx-auto">
-          A creative digital agency bringing western authenticity to the modern web.
+  <main class="bg-white">
+    {/* Navigation / Header */}
+    <header class="w-full py-6 px-4 absolute top-0 z-10 flex justify-center border-b border-boho-sand/20 bg-white/90 backdrop-blur-sm">
+      <div class="flex items-center gap-4">
+        <Image src={logoImage} alt="Star and Stream Logo" class="h-12 w-auto" />
+        <span class="font-barlow font-bold text-2xl tracking-widest text-boho-dark uppercase">Star and Stream</span>
+      </div>
+    </header>
+
+    {/* Hero Section */}
+    <section class="pt-40 pb-24 px-4 flex items-center justify-center min-h-[80vh] bg-gradient-to-b from-boho-sand/10 to-white">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-5xl md:text-7xl font-bold text-boho-dark mb-8 uppercase tracking-widest leading-tight">
+          Master the Dynamics of <span class="text-boho-clay">Conflict</span>, <span class="text-boho-clay">Credibility</span>, and <span class="text-boho-clay">Code</span>
+        </h1>
+        <p class="text-xl md:text-2xl text-boho-dark/80 mb-10 max-w-3xl mx-auto font-sans">
+          Star and Stream provides high-stakes intelligence and engineering solutions to help leaders navigate uncertainty and maintain operational excellence.
         </p>
-        <a href="#contact" class="inline-block bg-boho-clay text-white px-8 py-4 rounded-md font-medium hover:bg-boho-clay/90 transition-colors">
-          Get in Touch
-        </a>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#services" class="inline-block bg-boho-dark text-white px-8 py-4 rounded-sm font-barlow text-lg tracking-wider uppercase hover:bg-boho-clay transition-colors">
+            Explore Services
+          </a>
+          <a href="#contact" class="inline-block border-2 border-boho-dark text-boho-dark px-8 py-4 rounded-sm font-barlow text-lg tracking-wider uppercase hover:bg-boho-sand/20 transition-colors">
+            Contact Us
+          </a>
+        </div>
       </div>
     </section>
 
-    <section id="about" class="py-24 bg-boho-cream">
-      <div class="max-w-5xl mx-auto px-4 text-center">
-        <h2 class="text-4xl font-bold text-boho-dark mb-8">Our Mission</h2>
-        <p class="text-lg leading-relaxed text-boho-dark/80 max-w-3xl mx-auto">
-          We blend rugged, earthy design with cutting-edge technology. Whether you're building a brand from the ground up or refining an existing presence, we're here to guide you through the digital frontier.
+    {/* Philosophy / The Problem */}
+    <section class="py-20 px-4 bg-boho-sage/10 border-y border-boho-sage/20">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-boho-dark mb-6 uppercase tracking-wider">Our Core Philosophy</h2>
+        <p class="text-lg text-boho-dark/80 leading-relaxed font-sans max-w-2xl mx-auto">
+          We shift the focus from "judging the person" to "evaluating information." By addressing the cognitive narrowing that happens during escalation and the distortions that ruin professional credibility, we bring clear, functional, and objective control to chaotic situations.
         </p>
       </div>
     </section>
 
+    {/* About the Founders */}
+    <section id="about" class="py-24 px-4">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-4xl md:text-5xl font-bold text-center text-boho-dark mb-16 uppercase tracking-wider">About the Founders</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div class="bg-white p-8 border border-boho-sand rounded-sm shadow-sm">
+            <h3 class="text-3xl font-bold text-boho-clay mb-2 uppercase tracking-wide">Susan Hale</h3>
+            <p class="text-sm font-bold text-boho-sage uppercase tracking-widest mb-6 border-b border-boho-sand pb-4">Escalation Intelligence Expert</p>
+            <p class="text-boho-dark/80 leading-relaxed font-sans mb-4">
+              A veteran with nearly 14 years of honorable military service and three combat deployments. Susan is an expert in Escalation Intelligence, drawing on her background as a Senior Desk Sergeant managing emergency responses and de-escalating difficult situations.
+            </p>
+            <p class="text-boho-dark/80 leading-relaxed font-sans">
+              Her vast experience spans military intelligence, physical security for international dignitaries, and casualty assistance. She keeps teams functional under immense pressure.
+            </p>
+          </div>
+
+          <div class="bg-white p-8 border border-boho-sand rounded-sm shadow-sm">
+            <h3 class="text-3xl font-bold text-boho-clay mb-2 uppercase tracking-wide">Alvin Tolentino</h3>
+            <p class="text-sm font-bold text-boho-sage uppercase tracking-widest mb-6 border-b border-boho-sand pb-4">Fractional VP of Engineering</p>
+            <p class="text-boho-dark/80 leading-relaxed font-sans mb-4">
+              The technical backbone of Star and Stream, Alvin serves as a Fractional VP of Engineering. He brings "code geek" precision to executive leadership, ensuring that technology strategies perfectly align with overarching business objectives.
+            </p>
+            <p class="text-boho-dark/80 leading-relaxed font-sans">
+              With a focus on technical excellence and scalable architecture, Alvin helps growing startups and established firms navigate complex engineering challenges without missing a beat.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Services React Component */}
     <Services client:load />
+
+    {/* Why Work With Us */}
+    <section class="py-24 px-4 bg-boho-dark text-white">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 uppercase tracking-wider text-white">Why Work With Us?</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+          <div>
+            <h3 class="text-2xl font-bold text-boho-sand mb-4 uppercase tracking-wide">Battle-Tested Strategies</h3>
+            <p class="text-white/80 leading-relaxed font-sans">
+              Solutions born from real-world military intelligence, law enforcement, and high-level tech environments.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-2xl font-bold text-boho-sand mb-4 uppercase tracking-wide">Neutrality & Evidence</h3>
+            <p class="text-white/80 leading-relaxed font-sans">
+              We teach you how to redirect conversations toward fair evaluation standards and strip away emotional bias.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-2xl font-bold text-boho-sand mb-4 uppercase tracking-wide">Proven Resilience</h3>
+            <p class="text-white/80 leading-relaxed font-sans">
+              With backgrounds spanning Master Resilience Training (Army) to tech leadership, we guide teams through crisis and reorganization.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
     
+    {/* Contact React Component */}
     <ContactForm client:load />
+
+    {/* Footer */}
+    <footer class="bg-boho-dark border-t border-white/10 py-8 text-center text-white/50 font-sans text-sm">
+      <p>&copy; {new Date().getFullYear()} Star and Stream. All rights reserved.</p>
+    </footer>
   </main>
 </Layout>

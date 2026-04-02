@@ -2,33 +2,38 @@ import React from 'react';
 
 const services = [
   {
-    title: 'Brand Identity',
-    description: 'We craft authentic, memorable brand identities that reflect the spirit of your business.',
-    icon: '🌾',
+    title: 'Credibility Dynamics',
+    description: 'Focuses on what happens when credibility becomes distorted and how to bring evaluation back to evidence. Maintain professional credibility when facing dismissal or skepticism.',
+    icon: '⚖️',
   },
   {
-    title: 'Web Development',
-    description: 'Modern, blazing-fast websites built with the latest technologies like Astro and React.',
-    icon: '💻',
+    title: 'Escalation Intelligence',
+    description: 'Anger management for real-world conflict. Understand the "Escalation Cycle" to stay functional and strategic even when emotions are intense, and interrupt the spiral before it takes over.',
+    icon: '🛡️',
   },
   {
-    title: 'Digital Strategy',
-    description: 'Guiding your digital presence with strategic planning and meaningful design.',
-    icon: '🧭',
+    title: 'Work Ready Bootcamp',
+    description: 'A comprehensive curriculum focused on professionalization and accountability. Gain the resilience and skills needed to excel in high-pressure environments.',
+    icon: '⛰️',
+  },
+  {
+    title: 'Fractional VP Engineering',
+    description: 'Strategic technical leadership for growing startups or established firms. Bridging the gap between business goals and scalable code with "code geek" precision.',
+    icon: '⚙️',
   },
 ];
 
 export default function Services() {
   return (
-    <section id="services" className="py-24 bg-boho-sage/10">
+    <section id="services" className="py-24 bg-white border-y border-boho-sand/30">
       <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center text-boho-dark mb-16">Our Services</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <h2 className="text-4xl md:text-5xl font-bold text-center text-boho-dark mb-16 uppercase tracking-wider">Products & Services</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {services.map((service, index) => (
-            <div key={index} className="bg-white p-8 rounded-lg shadow-sm border border-boho-sage/20 text-center hover:shadow-md transition-shadow">
-              <div className="text-4xl mb-6">{service.icon}</div>
-              <h3 className="text-2xl font-bold text-boho-brown mb-4">{service.title}</h3>
-              <p className="text-boho-dark/80 leading-relaxed">{service.description}</p>
+            <div key={index} className="bg-boho-sand/5 p-8 rounded-lg shadow-sm border border-boho-sand/40 hover:border-boho-clay/50 transition-colors">
+              <div className="text-4xl mb-4">{service.icon}</div>
+              <h3 className="text-2xl font-bold text-boho-dark mb-3 uppercase tracking-wide">{service.title}</h3>
+              <p className="text-boho-dark/80 leading-relaxed font-sans">{service.description}</p>
             </div>
           ))}
         </div>

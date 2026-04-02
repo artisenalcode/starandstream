@@ -1,21 +1,19 @@
 @import "tailwindcss";
 
 @theme {
-  --color-boho-sand: #F4A460;
-  --color-boho-clay: #CD5C5C;
-  --color-boho-sage: #8F9779;
-  --color-boho-cream: #FFFDD0;
-  --color-boho-dark: #2F4F4F;
-  --color-boho-brown: #8B4513;
+  --color-boho-sand: #D4C4B7;
+  --color-boho-clay: #A66B53;
+  --color-boho-sage: #808A7C;
+  --color-boho-dark: #2D312E;
 
   --font-sans: 'Inter', sans-serif;
-  --font-serif: 'Playfair Display', serif;
+  --font-barlow: 'Barlow Condensed', sans-serif;
 }
 
 body {
-  @apply bg-boho-cream text-boho-dark font-sans antialiased;
+  @apply bg-white text-boho-dark font-sans antialiased;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  @apply font-serif;
+  @apply font-barlow tracking-wide;
 }

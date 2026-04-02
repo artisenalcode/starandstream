@@ -14,14 +14,14 @@ export default function ContactForm() {
   };
 
   return (
-    <section id="contact" className="py-24 bg-boho-sand/10">
+    <section id="contact" className="py-24 bg-white">
       <div className="max-w-3xl mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center text-boho-dark mb-8">Get In Touch</h2>
-        <p className="text-center text-boho-dark/80 mb-12">
-          Ready to start your next project? We'd love to hear from you.
+        <h2 className="text-4xl md:text-5xl font-bold text-center text-boho-dark mb-4 uppercase tracking-wider">Stay Clear. Stay Functional. Start Today.</h2>
+        <p className="text-center text-boho-dark/80 mb-12 font-sans text-lg">
+          Inquire about Corporate Training or Engineering Consulting below.
         </p>
 
-        <form onSubmit={handleSubmit} className="bg-white p-8 rounded-lg shadow-sm border border-boho-sage/20">
+        <form onSubmit={handleSubmit} className="bg-boho-sand/5 p-8 border border-boho-sand/40">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-boho-dark mb-2">Name</label>
@@ -56,7 +56,7 @@ export default function ContactForm() {
           <button 
             type="submit" 
             disabled={status === 'submitting' || status === 'success'}
-            className="w-full bg-boho-clay text-white py-3 rounded-md font-medium hover:bg-boho-clay/90 transition-colors disabled:opacity-70"
+            className="w-full bg-boho-dark text-white py-4 rounded-sm font-barlow text-lg tracking-wider uppercase hover:bg-boho-clay transition-colors disabled:opacity-70"
           >
             {status === 'submitting' ? 'Sending...' : status === 'success' ? 'Message Sent!' : 'Send Message'}
           </button>
