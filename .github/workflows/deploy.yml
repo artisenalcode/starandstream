@@ -1,0 +1,55 @@
+name: Deploy to VPS
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Execute remote ssh commands to deploy
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: 85.239.232.124
+          username: ${{ secrets.VPS_USERNAME }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          script: |
+            # Navigate to the target directory
+            mkdir -p /data/code/starandstream.com
+            cd /data/code/starandstream.com
+            
+            # Pull latest changes if directory is already a git repo, otherwise clone
+            if [ -d ".git" ]; then
+                git pull origin main
+            else
+                git clone git@github.com:artisenalcode/starandstream.com.git . || echo "Please make sure the VPS has an SSH key added to the repo"
+            fi
+            
+            # Setup bun environment (assuming it was installed for the dev user)
+            export PATH="$HOME/.bun/bin:$PATH"
+            
+            # Build project natively using Bun
+            bun install && bun run build
+            
+            # Create the Nginx www directory if it doesn't exist
+            mkdir -p /data/nginx/www/starandstream.com
+            
+            # Sync the built static files to the Nginx www directory
+            rsync -avz --delete dist/ /data/nginx/www/starandstream.com/
+            
+            # Copy the Nginx configuration to the global Nginx conf.d directory
+            cp nginx/conf.d/starandstream.com.conf /data/nginx/conf.d/
+            
+            # Ensure Docker Compose / Podman is up and running with the new config
+            export DOCKER_HOST="unix://$XDG_RUNTIME_DIR/podman/podman.sock"
+            docker-compose up -d || podman-compose up -d || podman compose up -d
+            
+            # Attempt to request a certificate if it doesn't already exist
+            if [ ! -d "/data/certbot/conf/live/starandstream.com" ]; then
+                podman exec certbot certbot certonly --webroot -w /var/www/certbot -d starandstream.com -d www.starandstream.com --non-interactive --agree-tos -m contact@starandstream.com || true
+            fi
+            
+            # Reload Nginx to apply changes
+            podman exec nginx nginx -s reload

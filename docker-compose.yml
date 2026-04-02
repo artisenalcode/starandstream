@@ -1,0 +1,20 @@
+services:
+  starandstream:
+    image: node:24-alpine
+    container_name: starandstream
+    restart: always
+    working_dir: /app
+    volumes:
+      - /data/code/starandstream.com:/app:ro
+    env_file:
+      - /data/code/starandstream.com/.env
+    environment:
+      - HOST=0.0.0.0
+      - PORT=4322
+    command: node ./dist/server/entry.mjs
+    networks:
+      - nginx-net
+
+networks:
+  nginx-net:
+    external: true
