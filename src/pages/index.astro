@@ -16,10 +16,10 @@ import logoImage from '../assets/logo.png';
       </div>
       <div class="relative z-10 max-w-4xl mx-auto text-center">
         <h1 class="text-5xl md:text-7xl font-bold text-boho-navy mb-8 uppercase tracking-widest leading-tight">
-          Master the Dynamics of <span class="text-boho-gold">Conflict</span>, <span class="text-boho-gold">Credibility</span>, and <span class="text-boho-gold">Code</span>
+          Master the Art of <span class="text-boho-gold">Connection</span>, <span class="text-boho-gold">Credibility</span>, and <span class="text-boho-gold">Code</span>
         </h1>
         <p class="text-xl md:text-2xl text-boho-navy/80 mb-10 max-w-3xl mx-auto font-sans">
-          Star and Stream provides high-stakes intelligence and engineering solutions to help leaders navigate uncertainty and maintain operational excellence.
+          Star and Stream provides dynamic, human-centric training and engineering solutions to help leaders navigate uncertainty and build incredible teams.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a href="#services" class="inline-block bg-boho-navy text-white px-8 py-4 rounded-sm font-barlow text-lg tracking-wider uppercase hover:bg-boho-gold transition-colors">
@@ -33,15 +33,15 @@ import logoImage from '../assets/logo.png';
     </section>
 
     {/* Philosophy / The Problem */}
-    <section class="relative py-24 px-4 overflow-hidden border-y border-boho-denim/20">
+    <section class="relative py-32 px-4 overflow-hidden border-y border-boho-wheat/50 shadow-inner">
       <div class="absolute inset-0 z-0">
-        <Image src={import('../assets/images/about-wyoming.jpg')} alt="Afton, Wyoming Nature" class="w-full h-full object-cover opacity-20 grayscale" />
-        <div class="absolute inset-0 bg-boho-denim/90 mix-blend-multiply"></div>
+        <Image src={import('../assets/images/about-wyoming.jpg')} alt="Afton, Wyoming Nature" class="w-full h-full object-cover opacity-40 scale-105" />
+        <div class="absolute inset-0 bg-gradient-to-r from-boho-navy/95 to-boho-denim/80"></div>
       </div>
       <div class="relative z-10 max-w-4xl mx-auto text-center text-white">
-        <h2 class="text-3xl md:text-4xl font-bold mb-6 uppercase tracking-wider text-white">Our Core Philosophy</h2>
-        <p class="text-lg leading-relaxed font-sans max-w-2xl mx-auto text-white/90">
-          We shift the focus from "judging the person" to "evaluating information." By addressing the cognitive narrowing that happens during escalation and the distortions that ruin professional credibility, we bring clear, functional, and objective control to chaotic situations.
+        <h2 class="text-4xl md:text-5xl font-bold mb-8 uppercase tracking-wider text-white drop-shadow-md">Our Core Philosophy</h2>
+        <p class="text-xl md:text-2xl leading-relaxed font-sans max-w-3xl mx-auto text-white drop-shadow-sm font-medium">
+          We believe that great work happens when people feel understood, not judged. By breaking down communication barriers and teaching real-world resilience, we help you turn chaotic situations into collaborative wins. It's about staying clear, grounded, and having fun along the way.
         </p>
       </div>
     </section>
@@ -52,20 +52,20 @@ import logoImage from '../assets/logo.png';
         <h2 class="text-4xl md:text-5xl font-bold text-center text-boho-navy mb-16 uppercase tracking-wider">About the Founders</h2>
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <div class="bg-white p-8 border border-boho-wheat rounded-sm shadow-sm flex flex-col">
+          <div class="bg-white p-8 border border-boho-wheat rounded-sm shadow-sm flex flex-col hover:shadow-md transition-shadow">
             <h3 class="text-3xl font-bold text-boho-gold mb-2 uppercase tracking-wide">Susan Hale</h3>
             <p class="text-sm font-bold text-boho-denim uppercase tracking-widest mb-6 border-b border-boho-wheat pb-4">Escalation Intelligence</p>
             <p class="text-boho-navy/80 leading-relaxed font-sans mb-4 flex-grow">
-              A veteran with nearly 14 years of honorable military service and three combat deployments. Susan draws on her background managing emergency responses to teach Escalation Intelligence. She combines her military experience with her expertise as a Licensed Acupuncturist to help people navigate high-conflict spaces with ethical clarity and focus.
+              Susan draws on her deep background in crisis management and emergency response to teach Escalation Intelligence. More importantly, she brings the warmth and insight of a Licensed Acupuncturist, helping people navigate tricky spaces with ethical clarity, deep focus, and a whole lot of heart.
             </p>
             <a href="/about/susan" class="inline-block mt-4 text-boho-gold font-bold tracking-widest uppercase hover:text-boho-navy transition-colors">Read Susan's Story &rarr;</a>
           </div>
 
-          <div class="bg-white p-8 border border-boho-wheat rounded-sm shadow-sm flex flex-col">
+          <div class="bg-white p-8 border border-boho-wheat rounded-sm shadow-sm flex flex-col hover:shadow-md transition-shadow">
             <h3 class="text-3xl font-bold text-boho-gold mb-2 uppercase tracking-wide">Alvin Tolentino</h3>
             <p class="text-sm font-bold text-boho-denim uppercase tracking-widest mb-6 border-b border-boho-wheat pb-4">Fractional VP of Engineering</p>
             <p class="text-boho-navy/80 leading-relaxed font-sans mb-4 flex-grow">
-              The technical backbone of Star and Stream, Alvin is a Systems Architect with deep experience navigating chaotic, high-conflict environments. He approaches technical problem-solving with a human-centric lens, teaching others how to build collaborative momentum, reliability, and operational stability.
+              The technical backbone of Star and Stream, Alvin is a Systems Architect with deep experience navigating fast-paced, complex environments. He approaches technical problem-solving with a highly human-centric lens, teaching others how to build collaborative momentum, reliability, and operational stability with a smile.
             </p>
             <a href="/about/alvin" class="inline-block mt-4 text-boho-gold font-bold tracking-widest uppercase hover:text-boho-navy transition-colors">Read Alvin's Story &rarr;</a>
           </div>
@@ -77,27 +77,31 @@ import logoImage from '../assets/logo.png';
     <Services client:load />
 
     {/* Why Work With Us */}
-    <section class="py-24 px-4 bg-boho-navy text-white">
-      <div class="max-w-5xl mx-auto">
-        <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 uppercase tracking-wider text-white">Why Work With Us?</h2>
+    <section class="relative py-32 px-4 overflow-hidden border-y border-boho-wheat/50">
+      <div class="absolute inset-0 z-0">
+        <Image src={import('../assets/images/afton-valley.jpg')} alt="Star Valley Wyoming" class="w-full h-full object-cover opacity-50" />
+        <div class="absolute inset-0 bg-boho-navy/90"></div>
+      </div>
+      <div class="relative z-10 max-w-6xl mx-auto">
+        <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 uppercase tracking-wider text-white drop-shadow-md">Why Work With Us?</h2>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-          <div>
-            <h3 class="text-2xl font-bold text-boho-wheat mb-4 uppercase tracking-wide">Battle-Tested Strategies</h3>
-            <p class="text-white/80 leading-relaxed font-sans">
-              Solutions born from real-world military intelligence, law enforcement, and high-level tech environments.
+          <div class="bg-boho-navy/40 p-8 rounded-sm backdrop-blur-sm border border-boho-wheat/20 hover:border-boho-gold/50 transition-colors">
+            <h3 class="text-2xl font-bold text-boho-gold mb-4 uppercase tracking-wide drop-shadow-sm">Real-World Experience</h3>
+            <p class="text-white/90 leading-relaxed font-sans text-lg">
+              Solutions born from decades of navigating high-level tech environments, emergency response, and community building.
             </p>
           </div>
-          <div>
-            <h3 class="text-2xl font-bold text-boho-wheat mb-4 uppercase tracking-wide">Neutrality & Evidence</h3>
-            <p class="text-white/80 leading-relaxed font-sans">
+          <div class="bg-boho-navy/40 p-8 rounded-sm backdrop-blur-sm border border-boho-wheat/20 hover:border-boho-gold/50 transition-colors">
+            <h3 class="text-2xl font-bold text-boho-gold mb-4 uppercase tracking-wide drop-shadow-sm">Neutrality & Evidence</h3>
+            <p class="text-white/90 leading-relaxed font-sans text-lg">
               We teach you how to redirect conversations toward fair evaluation standards and strip away emotional bias.
             </p>
           </div>
-          <div>
-            <h3 class="text-2xl font-bold text-boho-wheat mb-4 uppercase tracking-wide">Proven Resilience</h3>
-            <p class="text-white/80 leading-relaxed font-sans">
-              With backgrounds spanning Master Resilience Training (Army) to tech leadership, we guide teams through crisis and reorganization.
+          <div class="bg-boho-navy/40 p-8 rounded-sm backdrop-blur-sm border border-boho-wheat/20 hover:border-boho-gold/50 transition-colors">
+            <h3 class="text-2xl font-bold text-boho-gold mb-4 uppercase tracking-wide drop-shadow-sm">Radical Resilience</h3>
+            <p class="text-white/90 leading-relaxed font-sans text-lg">
+              With backgrounds spanning clinical wellness to executive tech leadership, we guide teams through rapid change with confidence and optimism.
             </p>
           </div>
         </div>
