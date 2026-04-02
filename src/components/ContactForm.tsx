@@ -27,7 +27,7 @@ export default function ContactForm() {
 
         <form
           onSubmit={handleSubmit}
-          className="bg-white/80 backdrop-blur-lg p-8 rounded-[32px] shadow-xl border border-boho-wheat/50"
+          className="bg-white p-8 rounded-sm shadow-sm border-2 border-boho-wheat"
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
             <div>
@@ -38,7 +38,7 @@ export default function ContactForm() {
                 type="text"
                 id="name"
                 required
-                className="w-full px-4 py-2 border border-gray-300 rounded-[16px] focus:ring-boho-denim focus:border-boho-denim outline-none transition-colors"
+                className="w-full px-4 py-2 border-2 border-boho-wheat rounded-sm focus:ring-0 focus:border-boho-gold outline-none transition-colors"
               />
             </div>
             <div>
@@ -49,7 +49,7 @@ export default function ContactForm() {
                 type="email"
                 id="email"
                 required
-                className="w-full px-4 py-2 border border-gray-300 rounded-[16px] focus:ring-boho-denim focus:border-boho-denim outline-none transition-colors"
+                className="w-full px-4 py-2 border-2 border-boho-wheat rounded-sm focus:ring-0 focus:border-boho-gold outline-none transition-colors"
               />
             </div>
           </div>
@@ -62,14 +62,14 @@ export default function ContactForm() {
               id="message"
               rows={5}
               required
-              className="w-full px-4 py-2 border border-gray-300 rounded-[16px] focus:ring-boho-denim focus:border-boho-denim outline-none transition-colors resize-none"
+              className="w-full px-4 py-2 border-2 border-boho-wheat rounded-sm focus:ring-0 focus:border-boho-gold outline-none transition-colors resize-none"
             ></textarea>
           </div>
 
           <button
             type="submit"
             disabled={status === 'submitting' || status === 'success'}
-            className="w-full bg-boho-navy/90 backdrop-blur-md text-white py-4 rounded-[32px] font-barlow text-lg tracking-wider uppercase hover:bg-boho-gold transition-colors disabled:opacity-70 shadow-lg"
+            className="w-full bg-boho-navy text-white py-4 rounded-sm font-barlow text-lg tracking-wider uppercase hover:bg-boho-gold transition-colors disabled:opacity-70 shadow-sm"
           >
             {status === 'submitting'
               ? 'Sending...'

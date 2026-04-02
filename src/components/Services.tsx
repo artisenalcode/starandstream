@@ -41,7 +41,7 @@ export default function Services() {
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-white/80 backdrop-blur-lg p-8 rounded-[32px] shadow-xl border border-boho-wheat/50 hover:border-boho-gold/50 transition-all hover:shadow-2xl flex flex-col"
+              className="bg-white p-8 rounded-sm shadow-sm border-2 border-boho-wheat hover:border-boho-gold transition-colors flex flex-col"
             >
               <div className="text-4xl mb-4">{service.icon}</div>
               <h3 className="text-2xl font-bold text-boho-navy mb-3 uppercase tracking-wide">
