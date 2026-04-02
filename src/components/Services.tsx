@@ -28,17 +28,17 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="py-24 bg-white border-y border-boho-sand/30">
+    <section id="services" className="py-24 bg-white border-y border-boho-wheat/30">
       <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-4xl md:text-5xl font-bold text-center text-boho-dark mb-16 uppercase tracking-wider">Products & Services</h2>
+        <h2 className="text-4xl md:text-5xl font-bold text-center text-boho-navy mb-16 uppercase tracking-wider">Products & Services</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {services.map((service, index) => (
-            <div key={index} className="bg-boho-sand/5 p-8 rounded-lg shadow-sm border border-boho-sand/40 hover:border-boho-clay/50 transition-colors flex flex-col">
+            <div key={index} className="bg-boho-wheat/5 p-8 rounded-lg shadow-sm border border-boho-wheat/40 hover:border-boho-gold/50 transition-colors flex flex-col">
               <div className="text-4xl mb-4">{service.icon}</div>
-              <h3 className="text-2xl font-bold text-boho-dark mb-3 uppercase tracking-wide">{service.title}</h3>
-              <p className="text-boho-dark/80 leading-relaxed font-sans flex-grow">{service.description}</p>
+              <h3 className="text-2xl font-bold text-boho-navy mb-3 uppercase tracking-wide">{service.title}</h3>
+              <p className="text-boho-navy/80 leading-relaxed font-sans flex-grow">{service.description}</p>
               {service.link && (
-                <a href={service.link} className="inline-block mt-6 text-boho-clay font-bold tracking-widest uppercase hover:text-boho-dark transition-colors">
+                <a href={service.link} className="inline-block mt-6 text-boho-gold font-bold tracking-widest uppercase hover:text-boho-navy transition-colors">
                   Learn More &rarr;
                 </a>
               )}

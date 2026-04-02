@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  --color-boho-sand: #D4C4B7;
-  --color-boho-clay: #A66B53;
-  --color-boho-sage: #808A7C;
-  --color-boho-dark: #2D312E;
+  --color-boho-wheat: #EAE0D5;
+  --color-boho-gold: #C5A059;
+  --color-boho-denim: #4A6A8A;
+  --color-boho-navy: #0A192F;
 
   --font-sans: 'Inter', sans-serif;
   --font-barlow: 'Barlow Condensed', sans-serif;
 }
 
 body {
-  @apply bg-white text-boho-dark font-sans antialiased;
+  @apply bg-white text-boho-navy font-sans antialiased;
 }
 
 h1, h2, h3, h4, h5, h6 {
