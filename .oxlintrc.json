@@ -1,0 +1,28 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "categories": {
+    "correctness": "error"
+  },
+  "rules": {
+    "no-unused-vars": "warn",
+    "no-console": "warn",
+    "no-else-return": "error"
+  },
+  "overrides": [
+    {
+      "files": ["src/**/*.{tsx,jsx}"],
+      "plugins": ["react"],
+      "rules": {
+        "react/react-in-jsx-scope": "off",
+        "react/jsx-pascal-case": "error"
+      }
+    },
+    {
+      "files": ["src/**/*.astro"],
+      "rules": {
+        "no-unused-vars": "off",
+        "no-unused-expressions": "off"
+      }
+    }
+  ]
+}
