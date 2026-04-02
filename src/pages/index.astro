@@ -8,17 +8,13 @@ import logoImage from '../assets/logo.png';
 
 <Layout title="Home">
   <main class="bg-white">
-    {/* Navigation / Header */}
-    <header class="w-full py-6 px-4 absolute top-0 z-10 flex justify-center border-b border-boho-sand/20 bg-white/90 backdrop-blur-sm">
-      <div class="flex items-center gap-4">
-        <Image src={logoImage} alt="Star and Stream Logo" class="h-12 w-auto" />
-        <span class="font-barlow font-bold text-2xl tracking-widest text-boho-dark uppercase">Star and Stream</span>
-      </div>
-    </header>
-
     {/* Hero Section */}
-    <section class="pt-40 pb-24 px-4 flex items-center justify-center min-h-[80vh] bg-gradient-to-b from-boho-sand/10 to-white">
-      <div class="max-w-4xl mx-auto text-center">
+    <section class="relative pt-40 pb-24 px-4 flex items-center justify-center min-h-[80vh] overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <Image src={import('../assets/images/hero-wyoming.jpg')} alt="Wyoming Landscape" class="w-full h-full object-cover opacity-30" />
+        <div class="absolute inset-0 bg-gradient-to-b from-boho-sand/40 to-white"></div>
+      </div>
+      <div class="relative z-10 max-w-4xl mx-auto text-center">
         <h1 class="text-5xl md:text-7xl font-bold text-boho-dark mb-8 uppercase tracking-widest leading-tight">
           Master the Dynamics of <span class="text-boho-clay">Conflict</span>, <span class="text-boho-clay">Credibility</span>, and <span class="text-boho-clay">Code</span>
         </h1>
@@ -37,10 +33,14 @@ import logoImage from '../assets/logo.png';
     </section>
 
     {/* Philosophy / The Problem */}
-    <section class="py-20 px-4 bg-boho-sage/10 border-y border-boho-sage/20">
-      <div class="max-w-4xl mx-auto text-center">
-        <h2 class="text-3xl md:text-4xl font-bold text-boho-dark mb-6 uppercase tracking-wider">Our Core Philosophy</h2>
-        <p class="text-lg text-boho-dark/80 leading-relaxed font-sans max-w-2xl mx-auto">
+    <section class="relative py-24 px-4 overflow-hidden border-y border-boho-sage/20">
+      <div class="absolute inset-0 z-0">
+        <Image src={import('../assets/images/about-wyoming.jpg')} alt="Afton, Wyoming Nature" class="w-full h-full object-cover opacity-20 grayscale" />
+        <div class="absolute inset-0 bg-boho-sage/90 mix-blend-multiply"></div>
+      </div>
+      <div class="relative z-10 max-w-4xl mx-auto text-center text-white">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6 uppercase tracking-wider text-white">Our Core Philosophy</h2>
+        <p class="text-lg leading-relaxed font-sans max-w-2xl mx-auto text-white/90">
           We shift the focus from "judging the person" to "evaluating information." By addressing the cognitive narrowing that happens during escalation and the distortions that ruin professional credibility, we bring clear, functional, and objective control to chaotic situations.
         </p>
       </div>
