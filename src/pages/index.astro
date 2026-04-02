@@ -1,9 +1,10 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Services from '../components/Services';
-import ContactForm from '../components/ContactForm';
-import { Image } from 'astro:assets';
-import logoImage from '../assets/logo.png';
+import { Image } from 'astro:assets'
+
+import ContactForm from '../components/ContactForm'
+import Layout from '../layouts/Layout.astro'
+import Services from '../components/Services'
+import logoImage from '../assets/logo.png'
 ---
 
 <Layout title="Home">
@@ -15,17 +16,17 @@ import logoImage from '../assets/logo.png';
         <div class="absolute inset-0 bg-gradient-to-b from-boho-navy/60 via-boho-navy/40 to-white/90"></div>
       </div>
       <div class="relative z-10 max-w-4xl mx-auto text-center mt-10">
-        <h1 class="text-5xl md:text-7xl font-bold text-white mb-8 uppercase tracking-widest leading-tight drop-shadow-lg">
-          Master the Art of <span class="text-boho-gold">Connection</span>, <span class="text-boho-gold">Credibility</span>, and <span class="text-boho-gold">Code</span>
+        <h1 class="text-[68px] font-bold text-white mb-8 uppercase tracking-widest leading-tight drop-shadow-lg">
+          Building Resilient Leaders & <span class="text-boho-gold">High-Velocity Teams</span>
         </h1>
-        <p class="text-xl md:text-2xl text-boho-navy font-medium mb-10 max-w-3xl mx-auto font-sans bg-white/60 p-4 rounded-sm backdrop-blur-sm">
-          Star and Stream provides dynamic, human-centric training and engineering solutions to build resilient leaders and incredible teams.
+        <p class="text-xl md:text-2xl text-boho-navy font-medium mb-10 max-w-3xl mx-auto font-sans bg-white/60 p-4 rounded-[32px] backdrop-blur-md border border-white/40 shadow-lg">
+          Star and Stream provides dynamic, human-centric training and engineering solutions to help you navigate uncertainty with clarity and operational impeccability.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="#services" class="inline-block bg-boho-navy text-white px-8 py-4 rounded-sm font-barlow text-lg tracking-wider uppercase hover:bg-boho-gold transition-colors shadow-md">
+          <a href="#services" class="inline-block bg-boho-navy/80 backdrop-blur-md border border-white/20 text-white px-8 py-4 rounded-[32px] font-barlow text-lg tracking-wider uppercase hover:bg-boho-gold transition-colors shadow-xl">
             Explore Courses & Services
           </a>
-          <a href="#contact" class="inline-block bg-white border-2 border-boho-navy text-boho-navy px-8 py-4 rounded-sm font-barlow text-lg tracking-wider uppercase hover:bg-boho-wheat/50 transition-colors shadow-md">
+          <a href="#contact" class="inline-block bg-white/80 backdrop-blur-md border-2 border-boho-navy/20 text-boho-navy px-8 py-4 rounded-[32px] font-barlow text-lg tracking-wider uppercase hover:bg-boho-wheat/80 transition-colors shadow-xl">
             Contact Us
           </a>
         </div>
@@ -52,7 +53,7 @@ import logoImage from '../assets/logo.png';
         <h2 class="text-4xl md:text-5xl font-bold text-center text-boho-navy mb-16 uppercase tracking-wider">About the Founders</h2>
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <div class="bg-white p-8 border border-boho-wheat rounded-sm shadow-sm flex flex-col hover:shadow-md transition-shadow">
+          <div class="bg-white/80 backdrop-blur-lg p-8 border border-boho-wheat/50 rounded-[32px] shadow-xl flex flex-col hover:shadow-2xl transition-shadow">
             <h3 class="text-3xl font-bold text-boho-gold mb-2 uppercase tracking-wide">Susan Hale</h3>
             <p class="text-sm font-bold text-boho-denim uppercase tracking-widest mb-6 border-b border-boho-wheat pb-4">Escalation Intelligence</p>
             <p class="text-boho-navy/80 leading-relaxed font-sans mb-4 flex-grow">
@@ -61,7 +62,7 @@ import logoImage from '../assets/logo.png';
             <a href="/about/susan" class="inline-block mt-4 text-boho-gold font-bold tracking-widest uppercase hover:text-boho-navy transition-colors">Read Susan's Story &rarr;</a>
           </div>
 
-          <div class="bg-white p-8 border border-boho-wheat rounded-sm shadow-sm flex flex-col hover:shadow-md transition-shadow">
+          <div class="bg-white/80 backdrop-blur-lg p-8 border border-boho-wheat/50 rounded-[32px] shadow-xl flex flex-col hover:shadow-2xl transition-shadow">
             <h3 class="text-3xl font-bold text-boho-gold mb-2 uppercase tracking-wide">Alvin Tolentino</h3>
             <p class="text-sm font-bold text-boho-denim uppercase tracking-widest mb-6 border-b border-boho-wheat pb-4">Fractional VP of Engineering</p>
             <p class="text-boho-navy/80 leading-relaxed font-sans mb-4 flex-grow">
@@ -86,19 +87,19 @@ import logoImage from '../assets/logo.png';
         <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 uppercase tracking-wider text-white drop-shadow-md">Why Work With Us?</h2>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-          <div class="bg-boho-navy/40 p-8 rounded-sm backdrop-blur-sm border border-boho-wheat/20 hover:border-boho-gold/50 transition-colors">
+          <div class="bg-boho-navy/40 p-8 rounded-[32px] backdrop-blur-xl border border-boho-wheat/30 hover:border-boho-gold/70 transition-all shadow-xl hover:shadow-2xl">
             <h3 class="text-2xl font-bold text-boho-gold mb-4 uppercase tracking-wide drop-shadow-sm">Real-World Experience</h3>
             <p class="text-white/90 leading-relaxed font-sans text-lg">
               Solutions born from decades of navigating high-level tech environments, emergency response, and community building.
             </p>
           </div>
-          <div class="bg-boho-navy/40 p-8 rounded-sm backdrop-blur-sm border border-boho-wheat/20 hover:border-boho-gold/50 transition-colors">
+          <div class="bg-boho-navy/40 p-8 rounded-[32px] backdrop-blur-xl border border-boho-wheat/30 hover:border-boho-gold/70 transition-all shadow-xl hover:shadow-2xl">
             <h3 class="text-2xl font-bold text-boho-gold mb-4 uppercase tracking-wide drop-shadow-sm">Neutrality & Evidence</h3>
             <p class="text-white/90 leading-relaxed font-sans text-lg">
               We teach you how to redirect conversations toward fair evaluation standards and strip away emotional bias.
             </p>
           </div>
-          <div class="bg-boho-navy/40 p-8 rounded-sm backdrop-blur-sm border border-boho-wheat/20 hover:border-boho-gold/50 transition-colors">
+          <div class="bg-boho-navy/40 p-8 rounded-[32px] backdrop-blur-xl border border-boho-wheat/30 hover:border-boho-gold/70 transition-all shadow-xl hover:shadow-2xl">
             <h3 class="text-2xl font-bold text-boho-gold mb-4 uppercase tracking-wide drop-shadow-sm">Radical Resilience</h3>
             <p class="text-white/90 leading-relaxed font-sans text-lg">
               With backgrounds spanning clinical wellness to executive tech leadership, we guide teams through rapid change with confidence and optimism.
