@@ -15,10 +15,31 @@ export default function PreRegistrationForm({
     e.preventDefault()
     setStatus('submitting')
 
-    // Simulate form submission
-    setTimeout(() => {
-      setStatus('success')
-    }, 1500)
+    const formData = new FormData(e.currentTarget)
+    const payload = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      role: formData.get('role'),
+      interest: formData.get('interest'),
+      courseName
+    }
+
+    try {
+      const response = await fetch('/api/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+
+      if (response.ok) {
+        setStatus('success')
+        e.currentTarget.reset()
+      } else {
+        setStatus('error')
+      }
+    } catch {
+      setStatus('error')
+    }
   }
 
   return (
@@ -45,6 +66,7 @@ export default function PreRegistrationForm({
             <input
               type="text"
               id="name"
+              name="name"
               required
               className="w-full px-4 py-2 border border-boho-wheat rounded-sm focus:ring-boho-denim focus:border-boho-denim outline-none font-sans"
             />
@@ -56,6 +78,7 @@ export default function PreRegistrationForm({
             <input
               type="email"
               id="email"
+              name="email"
               required
               className="w-full px-4 py-2 border border-boho-wheat rounded-sm focus:ring-boho-denim focus:border-boho-denim outline-none font-sans"
             />
@@ -68,6 +91,7 @@ export default function PreRegistrationForm({
           </label>
           <select
             id="role"
+            name="role"
             required
             className="w-full px-4 py-2 border border-boho-wheat rounded-sm focus:ring-boho-denim focus:border-boho-denim outline-none font-sans bg-white"
           >
@@ -85,6 +109,7 @@ export default function PreRegistrationForm({
           </label>
           <textarea
             id="interest"
+            name="interest"
             rows={4}
             className="w-full px-4 py-2 border border-boho-wheat rounded-sm focus:ring-boho-denim focus:border-boho-denim outline-none resize-none font-sans"
           ></textarea>
@@ -105,6 +130,11 @@ export default function PreRegistrationForm({
         {status === 'success' && (
           <p className="text-boho-denim text-center mt-4 font-medium">
             Thank you. We take a disciplined approach to our growth—expect an update from us soon.
+          </p>
+        )}
+        {status === 'error' && (
+          <p className="text-red-600 text-center mt-4 font-medium">
+            Something went wrong. Please try again later.
           </p>
         )}
       </form>
