@@ -1,0 +1,47 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import logoImage from '../../assets/logo.png';
+---
+
+<Layout title="About Alvin Tolentino">
+  <main class="bg-white">
+    {/* Navigation / Header */}
+    <header class="w-full py-6 px-4 absolute top-0 z-10 flex justify-center border-b border-boho-sand/20 bg-white/90 backdrop-blur-sm">
+      <a href="/" class="flex items-center gap-4">
+        <Image src={logoImage} alt="Star and Stream Logo" class="h-12 w-auto" />
+        <span class="font-barlow font-bold text-2xl tracking-widest text-boho-dark uppercase">Star and Stream</span>
+      </a>
+    </header>
+
+    <section class="pt-40 pb-24 px-4">
+      <div class="max-w-4xl mx-auto">
+        <h1 class="text-5xl md:text-6xl font-bold text-boho-dark mb-6 uppercase tracking-widest">Alvin Tolentino</h1>
+        <p class="text-2xl text-boho-clay font-barlow tracking-widest uppercase mb-12 border-b border-boho-sand pb-6">
+          The Connector & Systems Architect
+        </p>
+
+        <div class="space-y-8 text-lg text-boho-dark/80 font-sans leading-relaxed">
+          <p>
+            Alvin Tolentino is a technology leader defined by Radical Resilience and Systems Clarity. With over 20 years of experience, Alvin specializes in the "Human-Technical Interface"—the point where complex code meets human motivation.
+          </p>
+          
+          <p>
+            Alvin’s journey hasn’t just been about code; it’s been about connection. Through international relocations, leading support ecosystems that scaled to thousands of members, and facing intense personal and professional "turnarounds," Alvin maintains a deeply <strong>human-centric</strong> worldview. He believes that true technical and organizational success is built on a foundation of high ethical standards, empathy, and integrity.
+          </p>
+
+          <div class="bg-boho-sand/10 p-8 my-10 border-l-4 border-boho-clay">
+            <h3 class="text-2xl font-bold text-boho-dark mb-4 uppercase tracking-wide">The High-Conflict Crucible</h3>
+            <p class="font-sans text-boho-dark/80">
+              Having navigated chaotic tech environments and highly challenging personal chapters, Alvin understands what it’s like to be judged in high-conflict spaces. Rather than succumbing to that friction, he uses his 136-IQ pattern recognition and his experience as a 5th Dan Bujinkan Black Belt to act as a <strong>Connector</strong>. He mentors individuals out of isolation and transforms fragmented, high-anxiety teams into collaborative, high-velocity engines.
+            </p>
+          </div>
+
+          <p>
+            Today, as the co-founder of Star and Stream, Alvin is dedicated to teaching others how to achieve success without compromising their ethics. He builds systems—and people—that are resilient enough to handle the volatility of the modern world.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

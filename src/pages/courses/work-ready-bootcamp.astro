@@ -1,0 +1,68 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PreRegistrationForm from '../../components/PreRegistrationForm';
+import { Image } from 'astro:assets';
+import logoImage from '../../assets/logo.png';
+---
+
+<Layout title="Work Ready Bootcamp">
+  <main class="bg-white">
+    {/* Navigation / Header */}
+    <header class="w-full py-6 px-4 absolute top-0 z-10 flex justify-center border-b border-boho-sand/20 bg-white/90 backdrop-blur-sm">
+      <a href="/" class="flex items-center gap-4">
+        <Image src={logoImage} alt="Star and Stream Logo" class="h-12 w-auto" />
+        <span class="font-barlow font-bold text-2xl tracking-widest text-boho-dark uppercase">Star and Stream</span>
+      </a>
+    </header>
+
+    {/* Hero Section */}
+    <section class="pt-40 pb-20 px-4 bg-boho-sand/10">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-5xl md:text-6xl font-bold text-boho-dark mb-6 uppercase tracking-widest">Work Ready Bootcamp</h1>
+        <p class="text-xl text-boho-dark/80 max-w-2xl mx-auto font-sans">
+          Bridging the gap between education and industrial output. We teach applied critical thinking and expectations management—the skills employers desperately need but don't have time to teach.
+        </p>
+      </div>
+    </section>
+
+    {/* Course Details */}
+    <section class="py-20 px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="mb-16">
+          <h2 class="text-3xl font-bold text-boho-clay mb-6 uppercase tracking-wide">The Readiness Gap</h2>
+          <p class="text-lg text-boho-dark/80 leading-relaxed font-sans mb-4">
+            Industry leaders and contractors are reporting a growing "Readiness Gap." Young professionals often possess technical or academic degrees but lack the Systems Thinking, Critical Resilience, and Professional Discipline required for high-stakes environments.
+          </p>
+          <p class="text-lg text-boho-dark/80 leading-relaxed font-sans">
+            At Star and Stream, we treat this as a Systemic Integration Failure. We don’t just teach "soft skills"—we provide the structural manual overrides that allow emerging talent to move from survival mode into mission-readiness.
+          </p>
+        </div>
+
+        <div class="mb-20">
+          <h2 class="text-3xl font-bold text-boho-clay mb-6 uppercase tracking-wide">The Curriculum</h2>
+          <div class="space-y-8">
+            <div class="bg-boho-sand/5 p-8 border-l-4 border-boho-sage">
+              <h3 class="text-2xl font-bold text-boho-dark mb-3 uppercase tracking-wide">Pillar 01: Systems Literacy</h3>
+              <p class="text-boho-dark/80 font-sans">Moving beyond tasks to understand the "Geometry of the Problem." We teach the applied critical thinking skills needed to navigate complex workflows and solve problems at the root.</p>
+            </div>
+            
+            <div class="bg-boho-sand/5 p-8 border-l-4 border-boho-sage">
+              <h3 class="text-2xl font-bold text-boho-dark mb-3 uppercase tracking-wide">Pillar 02: Biological Regulation</h3>
+              <p class="text-boho-dark/80 font-sans">A dysregulated system cannot process logic. Using clinical resilience frameworks, we teach students how to manage stress, manage expectations, and maintain focus under pressure.</p>
+            </div>
+            
+            <div class="bg-boho-sand/5 p-8 border-l-4 border-boho-sage">
+              <h3 class="text-2xl font-bold text-boho-dark mb-3 uppercase tracking-wide">Pillar 03: Professional Stewardship</h3>
+              <p class="text-boho-dark/80 font-sans">Transitioning from a "student" mindset to a "steward" mindset. We instill the discipline of reliability and effective, ego-neutral communication.</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Pre-Registration Form */}
+        <div id="register">
+          <PreRegistrationForm client:load courseName="Work Ready Bootcamp" showFeeNotice={true} />
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

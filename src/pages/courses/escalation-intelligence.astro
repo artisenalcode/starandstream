@@ -1,0 +1,82 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PreRegistrationForm from '../../components/PreRegistrationForm';
+import { Image } from 'astro:assets';
+import logoImage from '../../assets/logo.png';
+---
+
+<Layout title="Escalation Intelligence">
+  <main class="bg-white">
+    {/* Navigation / Header */}
+    <header class="w-full py-6 px-4 absolute top-0 z-10 flex justify-center border-b border-boho-sand/20 bg-white/90 backdrop-blur-sm">
+      <a href="/" class="flex items-center gap-4">
+        <Image src={logoImage} alt="Star and Stream Logo" class="h-12 w-auto" />
+        <span class="font-barlow font-bold text-2xl tracking-widest text-boho-dark uppercase">Star and Stream</span>
+      </a>
+    </header>
+
+    {/* Hero Section */}
+    <section class="pt-40 pb-20 px-4 bg-boho-sand/10">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-5xl md:text-6xl font-bold text-boho-dark mb-6 uppercase tracking-widest">Escalation Intelligence</h1>
+        <p class="text-xl text-boho-dark/80 max-w-2xl mx-auto font-sans">
+          Anger management for real-world conflict. Learn how to stay clear, functional, and in control when escalation begins.
+        </p>
+      </div>
+    </section>
+
+    {/* Course Details */}
+    <section class="py-20 px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="mb-16">
+          <h2 class="text-3xl font-bold text-boho-clay mb-6 uppercase tracking-wide">The Problem</h2>
+          <p class="text-lg text-boho-dark/80 leading-relaxed font-sans mb-4">
+            Most people seek anger management when something has already gone wrong. Anger hits so fast that you lose the ability to think clearly. Conversations escalate before you even realize what happened.
+          </p>
+          <p class="text-lg text-boho-dark/80 leading-relaxed font-sans">
+            Most anger management programs focus on controlling emotions or improving communication. But in real life, the real problem is usually <strong>escalation</strong>—the process where internal activation and interpersonal conflict begin feeding each other until the situation spirals out of control.
+          </p>
+        </div>
+
+        <div class="mb-16">
+          <h2 class="text-3xl font-bold text-boho-clay mb-6 uppercase tracking-wide">The Escalation Cycle</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-boho-sand/5 p-6 border border-boho-sand/40">
+              <h4 class="font-bold text-boho-dark mb-2 text-xl">1. Trigger</h4>
+              <p class="font-sans text-boho-dark/80">Something happens that feels threatening, unfair, or disrespectful.</p>
+            </div>
+            <div class="bg-boho-sand/5 p-6 border border-boho-sand/40">
+              <h4 class="font-bold text-boho-dark mb-2 text-xl">2. Neurological Activation</h4>
+              <p class="font-sans text-boho-dark/80">Your nervous system activates. Heart rate increases. Attention narrows.</p>
+            </div>
+            <div class="bg-boho-sand/5 p-6 border border-boho-sand/40">
+              <h4 class="font-bold text-boho-dark mb-2 text-xl">3. Cognitive Narrowing</h4>
+              <p class="font-sans text-boho-dark/80">Thinking becomes rigid. Blame increases. Perspective shrinks.</p>
+            </div>
+            <div class="bg-boho-sand/5 p-6 border border-boho-sand/40">
+              <h4 class="font-bold text-boho-dark mb-2 text-xl">4. Conflict Escalation</h4>
+              <p class="font-sans text-boho-dark/80">Communication breaks down and interactions intensify. Damage occurs.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-20">
+          <h2 class="text-3xl font-bold text-boho-clay mb-6 uppercase tracking-wide">What We Teach Instead</h2>
+          <ul class="list-disc pl-6 space-y-4 text-lg text-boho-dark/80 font-sans">
+            <li><strong>Recognize escalation early</strong> before it spirals.</li>
+            <li><strong>Regulate neurological activation</strong> so you can think clearly under pressure.</li>
+            <li><strong>Maintain emotional clarity</strong> even when anger is present.</li>
+            <li><strong>Navigate difficult conversations</strong> without amplifying conflict.</li>
+            <li><strong>Translate anger</strong> into clear requests, boundaries, and negotiation.</li>
+            <li><strong>Recover quickly</strong> after conflict instead of replaying it for days.</li>
+          </ul>
+        </div>
+
+        {/* Pre-Registration Form */}
+        <div id="register">
+          <PreRegistrationForm client:load courseName="Escalation Intelligence" showFeeNotice={true} />
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

@@ -1,0 +1,67 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PreRegistrationForm from '../../components/PreRegistrationForm';
+import { Image } from 'astro:assets';
+import logoImage from '../../assets/logo.png';
+---
+
+<Layout title="Credibility Dynamics">
+  <main class="bg-white">
+    {/* Navigation / Header */}
+    <header class="w-full py-6 px-4 absolute top-0 z-10 flex justify-center border-b border-boho-sand/20 bg-white/90 backdrop-blur-sm">
+      <a href="/" class="flex items-center gap-4">
+        <Image src={logoImage} alt="Star and Stream Logo" class="h-12 w-auto" />
+        <span class="font-barlow font-bold text-2xl tracking-widest text-boho-dark uppercase">Star and Stream</span>
+      </a>
+    </header>
+
+    {/* Hero Section */}
+    <section class="pt-40 pb-20 px-4 bg-boho-sand/10">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-5xl md:text-6xl font-bold text-boho-dark mb-6 uppercase tracking-widest">Credibility Dynamics</h1>
+        <p class="text-xl text-boho-dark/80 max-w-2xl mx-auto font-sans">
+          Most training programs focus on reducing bias or improving communication. We focus on what happens when credibility itself becomes distorted.
+        </p>
+      </div>
+    </section>
+
+    {/* Course Details */}
+    <section class="py-20 px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="mb-16">
+          <h2 class="text-3xl font-bold text-boho-clay mb-6 uppercase tracking-wide">The Value Proposition</h2>
+          <p class="text-lg text-boho-dark/80 leading-relaxed font-sans mb-4">
+            This course teaches participants how credibility judgments actually form, how bias and narrative framing distort evaluation, and how to redirect conversations toward information without escalating conflict.
+          </p>
+          <p class="text-lg text-boho-dark/80 leading-relaxed font-sans">
+            Rather than focusing on persuasion or accusation, the course focuses on improving the quality of evaluation and decision-making in difficult environments.
+          </p>
+        </div>
+
+        <div class="mb-16">
+          <h2 class="text-3xl font-bold text-boho-clay mb-6 uppercase tracking-wide">Course Outcomes</h2>
+          <ul class="list-disc pl-6 space-y-4 text-lg text-boho-dark/80 font-sans">
+            <li>Identify when credibility is being influenced by non-evidence factors such as authority, emotion, role, or social dynamics.</li>
+            <li>Distinguish clearly between what is observed and what is inferred, reducing errors caused by assumption.</li>
+            <li>Recognize the purpose of an interaction and adjust your approach accordingly.</li>
+            <li>Use neutral, non-confrontational communication strategies to clarify reasoning and reintroduce evidence.</li>
+            <li>Maintain cognitive flexibility under stress, avoiding rigid or reactive interpretation.</li>
+            <li>Make decisions based on evidence and context, even when information is incomplete or ambiguous.</li>
+          </ul>
+        </div>
+        
+        <div class="bg-boho-sage/10 p-8 border-l-4 border-boho-sage mb-20">
+          <h3 class="text-2xl font-bold text-boho-dark mb-4 uppercase tracking-wide">Core Skill of the Course</h3>
+          <p class="text-xl text-boho-dark/80 font-sans font-medium">
+            Shift conversations away from <span class="text-boho-clay">judging the person</span> and toward <span class="text-boho-clay">evaluating the information</span>.
+          </p>
+        </div>
+
+        {/* Pre-Registration Form */}
+        <div id="register">
+          <PreRegistrationForm client:load courseName="Credibility Dynamics" showFeeNotice={true} />
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

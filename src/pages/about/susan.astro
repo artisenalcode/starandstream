@@ -1,0 +1,47 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import logoImage from '../../assets/logo.png';
+---
+
+<Layout title="About Susan Hale">
+  <main class="bg-white">
+    {/* Navigation / Header */}
+    <header class="w-full py-6 px-4 absolute top-0 z-10 flex justify-center border-b border-boho-sand/20 bg-white/90 backdrop-blur-sm">
+      <a href="/" class="flex items-center gap-4">
+        <Image src={logoImage} alt="Star and Stream Logo" class="h-12 w-auto" />
+        <span class="font-barlow font-bold text-2xl tracking-widest text-boho-dark uppercase">Star and Stream</span>
+      </a>
+    </header>
+
+    <section class="pt-40 pb-24 px-4">
+      <div class="max-w-4xl mx-auto">
+        <h1 class="text-5xl md:text-6xl font-bold text-boho-dark mb-6 uppercase tracking-widest">Susan Hale</h1>
+        <p class="text-2xl text-boho-clay font-barlow tracking-widest uppercase mb-12 border-b border-boho-sand pb-6">
+          The Healer & Escalation Expert
+        </p>
+
+        <div class="space-y-8 text-lg text-boho-dark/80 font-sans leading-relaxed">
+          <p>
+            Susan Hale is a SFC Paratrooper, a Combat Veteran with three deployments, and a Doctor of Medical Science candidate specializing in Human Resilience. Her background spans nearly 14 years of honorable military service, where she excelled in Military Intelligence, physical security for international dignitaries, and casualty assistance.
+          </p>
+          
+          <p>
+            While the military environment is often defined by intensity and conflict, Susan's core perspective is fundamentally that of a <strong>Healer</strong>. As a Licensed Acupuncturist, Certified Acupuncture Detoxification Specialist, and Chinese Herbalist, she has dedicated her life to helping individuals restore their structural and emotional integrity.
+          </p>
+
+          <div class="bg-boho-sage/10 p-8 my-10 border-l-4 border-boho-sage">
+            <h3 class="text-2xl font-bold text-boho-dark mb-4 uppercase tracking-wide">Navigating High-Conflict Spaces</h3>
+            <p class="font-sans text-boho-dark/80">
+              Susan has faced intense judgment and systemic challenges within high-conflict environments, from gender discrimination in the military to managing extreme emergency responses as a Senior Desk Sergeant. Rather than becoming hardened by these environments, she learned how to stay clear and functional. She bridges the "masculine" world of high-stress operations with the "feminine" healing arts, maintaining a high ethical standard and a focus on human care.
+            </p>
+          </div>
+
+          <p>
+            At Star and Stream, Susan uses her vast clinical and operational experience to teach Escalation Intelligence and Resilience. She proves that it is possible to survive intense environments, achieve exceptional success, and maintain a compassionate, healing focus in the world.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

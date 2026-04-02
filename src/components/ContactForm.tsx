@@ -18,7 +18,8 @@ export default function ContactForm() {
       <div className="max-w-3xl mx-auto px-4">
         <h2 className="text-4xl md:text-5xl font-bold text-center text-boho-dark mb-4 uppercase tracking-wider">Stay Clear. Stay Functional. Start Today.</h2>
         <p className="text-center text-boho-dark/80 mb-12 font-sans text-lg">
-          Inquire about Corporate Training or Engineering Consulting below.
+          Inquire about Corporate Training, Engineering Consulting, or general questions below. <br/>
+          <em>(To pre-register for a course, please visit the specific course page.)</em>
         </p>
 
         <form onSubmit={handleSubmit} className="bg-boho-sand/5 p-8 border border-boho-sand/40">
