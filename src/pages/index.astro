@@ -1,0 +1,34 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Services from '../components/Services';
+import ContactForm from '../components/ContactForm';
+---
+
+<Layout title="Home">
+  <main>
+    <section class="min-h-screen flex items-center justify-center bg-boho-sand/20">
+      <div class="max-w-4xl mx-auto px-4 text-center">
+        <h1 class="text-5xl md:text-7xl font-bold text-boho-brown mb-6">Star and Stream</h1>
+        <p class="text-xl md:text-2xl text-boho-dark/80 mb-10 max-w-2xl mx-auto">
+          A creative digital agency bringing western authenticity to the modern web.
+        </p>
+        <a href="#contact" class="inline-block bg-boho-clay text-white px-8 py-4 rounded-md font-medium hover:bg-boho-clay/90 transition-colors">
+          Get in Touch
+        </a>
+      </div>
+    </section>
+
+    <section id="about" class="py-24 bg-boho-cream">
+      <div class="max-w-5xl mx-auto px-4 text-center">
+        <h2 class="text-4xl font-bold text-boho-dark mb-8">Our Mission</h2>
+        <p class="text-lg leading-relaxed text-boho-dark/80 max-w-3xl mx-auto">
+          We blend rugged, earthy design with cutting-edge technology. Whether you're building a brand from the ground up or refining an existing presence, we're here to guide you through the digital frontier.
+        </p>
+      </div>
+    </section>
+
+    <Services client:load />
+    
+    <ContactForm client:load />
+  </main>
+</Layout>

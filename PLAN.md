@@ -7,10 +7,10 @@
 - [ ] Establish base Boho Western design system (colors, typography)
 
 ## Phase 2: Landing Page Development
-- [ ] Implement Hero section with Boho Western aesthetic (earthy tones, clean typography)
-- [ ] Add about/mission section
-- [ ] Implement services/offerings section
-- [ ] Create contact/inquiry form
+- [x] Implement Hero section with Boho Western aesthetic (earthy tones, clean typography)
+- [x] Add about/mission section
+- [x] Implement services/offerings section
+- [x] Create contact/inquiry form
 
 ## Phase 3: Testing & Polish
 - [ ] Add unit tests for UI components using Vitest and React Testing Library
