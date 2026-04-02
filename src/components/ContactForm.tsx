@@ -7,10 +7,29 @@ export default function ContactForm() {
     e.preventDefault()
     setStatus('submitting')
 
-    // Simulate form submission
-    setTimeout(() => {
-      setStatus('success')
-    }, 1500)
+    const formData = new FormData(e.currentTarget)
+    const payload = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      message: formData.get('message')
+    }
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+
+      if (response.ok) {
+        setStatus('success')
+        e.currentTarget.reset()
+      } else {
+        setStatus('error')
+      }
+    } catch {
+      setStatus('error')
+    }
   }
 
   return (
@@ -37,6 +56,7 @@ export default function ContactForm() {
               <input
                 type="text"
                 id="name"
+                name="name"
                 required
                 className="w-full px-4 py-2 border-2 border-boho-wheat rounded-sm focus:ring-0 focus:border-boho-gold outline-none transition-colors"
               />
@@ -48,6 +68,7 @@ export default function ContactForm() {
               <input
                 type="email"
                 id="email"
+                name="email"
                 required
                 className="w-full px-4 py-2 border-2 border-boho-wheat rounded-sm focus:ring-0 focus:border-boho-gold outline-none transition-colors"
               />
@@ -60,6 +81,7 @@ export default function ContactForm() {
             </label>
             <textarea
               id="message"
+              name="message"
               rows={5}
               required
               className="w-full px-4 py-2 border-2 border-boho-wheat rounded-sm focus:ring-0 focus:border-boho-gold outline-none transition-colors resize-none"
@@ -81,6 +103,11 @@ export default function ContactForm() {
           {status === 'success' && (
             <p className="text-green-600 text-center mt-4 text-sm">
               Thank you for reaching out. We will get back to you shortly.
+            </p>
+          )}
+          {status === 'error' && (
+            <p className="text-red-600 text-center mt-4 text-sm">
+              Something went wrong. Please try again later.
             </p>
           )}
         </form>
