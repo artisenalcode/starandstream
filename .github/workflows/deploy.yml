@@ -24,7 +24,7 @@ jobs:
             if [ -d ".git" ]; then
                 git pull origin main
             else
-                git clone git@github.com:artisenalcode/starandstream.com.git . || echo "Please make sure the VPS has an SSH key added to the repo"
+                git clone git@github.com:artisenalcode/starandstream.git . || echo "Please make sure the VPS has an SSH key added to the repo"
             fi
             
             # Setup bun environment (assuming it was installed for the dev user)
