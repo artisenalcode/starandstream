@@ -8,10 +8,14 @@ import logoImage from '../../assets/logo.png';
 <Layout title="Work Ready Bootcamp">
   <main class="bg-white">
     {/* Hero Section */}
-    <section class="pt-40 pb-20 px-4 bg-boho-wheat/10">
-      <div class="max-w-4xl mx-auto text-center">
-        <h1 class="text-5xl md:text-6xl font-bold text-boho-navy mb-6 uppercase tracking-widest">Work Ready Bootcamp</h1>
-        <p class="text-xl text-boho-navy/80 max-w-2xl mx-auto font-sans">
+    <section class="relative pt-40 pb-20 px-4 bg-boho-navy overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <Image src={import('../../assets/images/teutons-afton-wyoming.png')} alt="Wyoming Landscape" class="w-full h-full object-cover opacity-30 grayscale" />
+        <div class="absolute inset-0 bg-boho-navy/80 mix-blend-multiply"></div>
+      </div>
+      <div class="relative z-10 max-w-4xl mx-auto text-center text-white">
+        <h1 class="text-5xl md:text-6xl font-bold mb-6 uppercase tracking-widest drop-shadow-md">Work Ready Bootcamp</h1>
+        <p class="text-xl text-white/90 max-w-2xl mx-auto font-sans font-medium drop-shadow-sm">
           Bridging the gap between education and industrial output. We teach applied critical thinking and expectations management—the skills employers desperately need but don't have time to teach.
         </p>
       </div>
