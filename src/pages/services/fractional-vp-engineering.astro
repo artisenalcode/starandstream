@@ -1,0 +1,72 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ContactForm from '../../components/ContactForm';
+import { Image } from 'astro:assets';
+---
+
+<Layout title="Fractional VP Engineering">
+  <main class="bg-white">
+    {/* Hero Section */}
+    <section class="relative pt-40 pb-20 px-4 bg-boho-navy overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <Image src={import('../../assets/images/teutons-afton-wyoming.png')} alt="Wyoming Landscape" class="w-full h-full object-cover opacity-30 grayscale" />
+        <div class="absolute inset-0 bg-boho-navy/80 mix-blend-multiply"></div>
+      </div>
+      <div class="relative z-10 max-w-4xl mx-auto text-center text-white">
+        <h1 class="text-5xl md:text-6xl font-bold mb-6 uppercase tracking-widest drop-shadow-md">Fractional VP of Engineering</h1>
+        <p class="text-xl text-white/90 max-w-2xl mx-auto font-sans font-medium drop-shadow-sm">
+          Strategic technical leadership that upskills your team without slowing them down. Shift your team toward better practices, automations, and scalable internal tools.
+        </p>
+      </div>
+    </section>
+
+    {/* Course/Service Details */}
+    <section class="py-20 px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="mb-16">
+          <h2 class="text-3xl font-bold text-boho-gold mb-6 uppercase tracking-wide">The Approach</h2>
+          <p class="text-lg text-boho-navy/80 leading-relaxed font-sans mb-4">
+            A successful engineering team isn't just about writing code; it's about building operational stability, clarity, and collaborative momentum. As a Fractional VP of Engineering, my methodology focuses on identifying the root causes of technical and organizational friction and implementing solutions that elevate the entire team.
+          </p>
+        </div>
+
+        <div class="mb-20">
+          <h2 class="text-3xl font-bold text-boho-gold mb-6 uppercase tracking-wide">The Four-Step Methodology</h2>
+          <div class="space-y-8">
+            <div class="bg-boho-wheat/5 p-8 border-l-4 border-boho-denim">
+              <h3 class="text-2xl font-bold text-boho-navy mb-3 uppercase tracking-wide">1. Establish a Baseline</h3>
+              <p class="text-boho-navy/80 font-sans">Before making changes, we need to understand the current state. We assess your engineering culture, technical debt, existing workflows, and where the team is experiencing the most friction.</p>
+            </div>
+            
+            <div class="bg-boho-wheat/5 p-8 border-l-4 border-boho-denim">
+              <h3 class="text-2xl font-bold text-boho-navy mb-3 uppercase tracking-wide">2. Identify Goals</h3>
+              <p class="text-boho-navy/80 font-sans">We align technical objectives directly with business outcomes. By identifying what success looks like—whether that's faster deployment times, increased stability, or better morale—we establish clear metrics for progress.</p>
+            </div>
+            
+            <div class="bg-boho-wheat/5 p-8 border-l-4 border-boho-denim">
+              <h3 class="text-2xl font-bold text-boho-navy mb-3 uppercase tracking-wide">3. Shift Practices & Automate</h3>
+              <p class="text-boho-navy/80 font-sans">We guide the team toward better development practices, build crucial internal tools, and introduce high-velocity automations (like streamlined CI/CD pipelines). This is often done in a <strong>workshop format</strong> where I am actively upskilling the team and working alongside them without getting in their way.</p>
+            </div>
+
+            <div class="bg-boho-wheat/5 p-8 border-l-4 border-boho-denim">
+              <h3 class="text-2xl font-bold text-boho-navy mb-3 uppercase tracking-wide">4. Assess the Results</h3>
+              <p class="text-boho-navy/80 font-sans">We review the impact of the changes against our initial baseline and goals. We ensure the team has internalized the new practices and is moving with sustainable, collaborative momentum.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-boho-denim/10 p-8 border-l-4 border-boho-denim mb-20">
+          <h3 class="text-2xl font-bold text-boho-navy mb-4 uppercase tracking-wide">The Workshop Advantage</h3>
+          <p class="text-xl text-boho-navy/80 font-sans font-medium">
+            Rather than prescribing top-down directives, I integrate with your team through hands-on workshops. This ensures knowledge transfer happens organically, <span class="text-boho-gold">upskilling the team actively</span> without disrupting their momentum.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    {/* Contact React Component */}
+    <ContactForm client:load />
+
+  </main>
+</Layout>
