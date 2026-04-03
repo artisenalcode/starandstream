@@ -27,7 +27,8 @@ const services = [
     title: 'Fractional VP Engineering',
     description:
       'Strategic technical leadership for growing startups or established firms. Bridging the gap between business goals and scalable code with "code geek" precision.',
-    icon: <Settings className="w-10 h-10 text-boho-gold" />
+    icon: <Settings className="w-10 h-10 text-boho-gold" />,
+    link: '/services/fractional-vp-engineering'
   }
 ]
 
