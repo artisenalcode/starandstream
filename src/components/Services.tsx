@@ -39,31 +39,32 @@ export default function Services() {
           Products & Services
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {services.map((service, index) => (
-            <div
-              key={index}
-              className="bg-white p-8 rounded-sm border-2 border-boho-wheat hover:border-boho-gold transition-transform hover:-translate-y-1 hover:shadow-lg flex flex-col group relative"
-            >
-              <div className="absolute top-0 right-0 w-20 h-20 bg-boho-wheat/20 rounded-bl-full -z-10 group-hover:bg-boho-gold/10 transition-colors"></div>
-              <div className="mb-6 bg-boho-navy/5 inline-flex p-4 rounded-full w-max">
-                {service.icon}
-              </div>
-              <h3 className="text-2xl font-bold text-boho-navy mb-3 uppercase tracking-wide">
-                {service.title}
-              </h3>
-              <p className="text-boho-navy/80 leading-relaxed font-sans flex-grow">
-                {service.description}
-              </p>
-              {service.link && (
-                <a
-                  href={service.link}
-                  className="inline-block mt-6 text-boho-gold font-bold tracking-widest uppercase hover:text-boho-navy transition-colors"
-                >
-                  Learn More &rarr;
-                </a>
-              )}
-            </div>
-          ))}
+          {services.map((service, index) => {
+            const CardWrapper = service.link ? 'a' : 'div'
+            return (
+              <CardWrapper
+                key={index}
+                href={service.link}
+                className="bg-white p-8 rounded-sm border-2 border-boho-wheat hover:border-boho-gold transition-transform hover:-translate-y-1 hover:shadow-lg flex flex-col group relative block"
+              >
+                <div className="absolute top-0 right-0 w-20 h-20 bg-boho-wheat/20 rounded-bl-full -z-10 group-hover:bg-boho-gold/10 transition-colors"></div>
+                <div className="mb-6 bg-boho-navy/5 inline-flex p-4 rounded-full w-max">
+                  {service.icon}
+                </div>
+                <h3 className="text-2xl font-bold text-boho-navy mb-3 uppercase tracking-wide">
+                  {service.title}
+                </h3>
+                <p className="text-boho-navy/80 leading-relaxed font-sans flex-grow">
+                  {service.description}
+                </p>
+                {service.link && (
+                  <span className="inline-block mt-6 text-boho-gold font-bold tracking-widest uppercase group-hover:text-boho-navy transition-colors">
+                    Learn More &rarr;
+                  </span>
+                )}
+              </CardWrapper>
+            )
+          })}
         </div>
       </div>
     </section>
