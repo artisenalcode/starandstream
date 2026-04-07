@@ -1,127 +1,281 @@
 ---
-import { Image } from 'astro:assets'
+import { Image } from "astro:assets";
 
-import ContactForm from '../components/ContactForm'
-import Layout from '../layouts/Layout.astro'
-import Services from '../components/Services'
-import logoImage from '../assets/logo.png'
+import ContactForm from "../components/ContactForm";
+import Layout from "../layouts/Layout.astro";
+import Services from "../components/Services";
+import logoImage from "../assets/logo.png";
 ---
 
 <Layout title="Home">
-  <main class="bg-white">
-    {/* Hero Section */}
-    <section class="relative pt-40 pb-24 px-4 flex items-center justify-center min-h-[90vh] overflow-hidden bg-boho-navy">
-      <div class="absolute inset-0 z-0">
-        <Image src={import('../assets/images/teutons-afton-wyoming.png')} alt="Wyoming Landscape" class="w-full h-full object-cover opacity-60 mix-blend-luminosity" />
-        <div class="absolute inset-0 bg-gradient-to-b from-boho-navy/80 via-boho-navy/50 to-bg-pattern"></div>
-      </div>
-      <div class="relative z-10 max-w-5xl mx-auto text-center mt-10">
-        <div class="inline-block mb-6 px-4 py-1.5 border-2 border-boho-gold/50 bg-boho-navy/50 backdrop-blur-sm rounded-full">
-          <span class="font-barlow text-boho-gold font-bold tracking-widest uppercase text-sm">Welcome to the Frontier</span>
-        </div>
-        <h1 class="text-[72px] md:text-[96px] font-bold text-white mb-8 uppercase tracking-widest leading-[0.9] drop-shadow-2xl">
-          Building Resilient Leaders &<br/> <span class="text-boho-gold inline-block transform -rotate-2 bg-boho-navy px-4 border-2 border-boho-gold mt-2">High-Velocity Teams</span>
-        </h1>
-        <p class="text-xl md:text-2xl text-boho-navy font-medium mb-12 max-w-3xl mx-auto font-sans bg-white p-8 rounded-sm border-2 border-boho-gold shadow-[8px_8px_0px_#C5A059] transform rotate-1">
-          Star and Stream provides dynamic, human-centric training and engineering solutions to help you navigate uncertainty with clarity, operational impeccability, and a bit of grit.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
-          <a href="#services" class="inline-block bg-boho-gold border-2 border-boho-gold text-boho-navy px-10 py-5 rounded-sm font-barlow text-xl font-bold tracking-widest uppercase hover:bg-transparent hover:text-boho-gold transition-colors shadow-[4px_4px_0px_#0A192F] hover:shadow-none hover:translate-y-1 hover:translate-x-1">
-            Explore Courses
-          </a>
-          <a href="#contact" class="inline-block bg-white border-2 border-boho-navy text-boho-navy px-10 py-5 rounded-sm font-barlow text-xl font-bold tracking-widest uppercase hover:bg-boho-wheat transition-colors shadow-[4px_4px_0px_#C5A059] hover:shadow-none hover:translate-y-1 hover:translate-x-1">
-            Contact Us
-          </a>
-        </div>
-      </div>
-    </section>
+    <main class="bg-white">
+        {/* Hero Section */}
+        <section
+            class="relative pt-40 pb-24 px-4 flex items-center justify-center min-h-[90vh] overflow-hidden bg-boho-navy"
+        >
+            <div class="absolute inset-0 z-0">
+                <Image
+                    src={import("../assets/images/teutons-afton-wyoming.png")}
+                    alt="Wyoming Landscape"
+                    class="w-full h-full object-cover opacity-60 mix-blend-luminosity"
+                />
+                <div
+                    class="absolute inset-0 bg-gradient-to-b from-boho-navy/80 via-boho-navy/50 to-bg-pattern"
+                >
+                </div>
+            </div>
+            <div class="relative z-10 max-w-5xl mx-auto text-center mt-10">
+                <div
+                    class="inline-block mb-6 px-4 py-1.5 border-2 border-boho-gold/50 bg-boho-navy/50 backdrop-blur-sm rounded-full"
+                >
+                    <span
+                        class="font-barlow text-boho-gold font-bold tracking-widest uppercase text-sm"
+                        >Welcome to the Frontier</span
+                    >
+                </div>
+                <h1
+                    class="text-[72px] md:text-[96px] font-bold text-white mb-8 uppercase tracking-widest leading-[0.9] drop-shadow-2xl"
+                >
+                    Building Resilient Leaders &<br />
+                    <span
+                        class="text-boho-gold inline-block transform -rotate-2 bg-boho-navy px-4 border-2 border-boho-gold mt-2"
+                        >High-Velocity Teams</span
+                    >
+                </h1>
+                <p
+                    class="text-xl md:text-2xl text-boho-navy font-medium mb-12 max-w-3xl mx-auto font-sans bg-white p-8 rounded-sm border-2 border-boho-gold shadow-[8px_8px_0px_#C5A059] transform rotate-1"
+                >
+                    Star and Stream provides dynamic, human-centric training and
+                    engineering solutions to help you navigate uncertainty with
+                    clarity, operational impeccability, and a bit of grit.
+                </p>
+                <div
+                    class="flex flex-col sm:flex-row gap-6 justify-center items-center"
+                >
+                    <a
+                        href="#services"
+                        class="inline-block bg-boho-gold border-2 border-boho-gold text-boho-navy px-10 py-5 rounded-sm font-barlow text-xl font-bold tracking-widest uppercase hover:bg-transparent hover:text-boho-gold transition-colors shadow-[4px_4px_0px_#0A192F] hover:shadow-none hover:translate-y-1 hover:translate-x-1"
+                    >
+                        Explore Courses
+                    </a>
+                    <a
+                        href="#contact"
+                        class="inline-block bg-white border-2 border-boho-navy text-boho-navy px-10 py-5 rounded-sm font-barlow text-xl font-bold tracking-widest uppercase hover:bg-boho-wheat transition-colors shadow-[4px_4px_0px_#C5A059] hover:shadow-none hover:translate-y-1 hover:translate-x-1"
+                    >
+                        Contact Us
+                    </a>
+                </div>
+            </div>
+        </section>
 
-    {/* Philosophy / The Problem */}
-    <section class="relative py-32 px-4 overflow-hidden border-y border-boho-wheat/50 shadow-inner bg-pattern">
-      <div class="absolute inset-0 z-0">
-        <Image src={import('../assets/images/about-wyoming.jpg')} alt="Afton, Wyoming Nature" class="w-full h-full object-cover opacity-60 scale-105 mix-blend-overlay" />
-        <div class="absolute inset-0 bg-gradient-to-r from-boho-navy/95 to-boho-denim/90"></div>
-      </div>
-      <div class="relative z-10 max-w-4xl mx-auto text-center text-white">
-        <h2 class="text-4xl md:text-5xl font-bold mb-8 uppercase tracking-wider text-white drop-shadow-md">Our Core Philosophy</h2>
-        <p class="text-xl md:text-2xl leading-relaxed font-sans max-w-3xl mx-auto text-white drop-shadow-sm font-medium">
-          We believe that great work happens when people feel understood, not judged. By breaking down communication barriers and teaching real-world resilience, we help you turn chaotic situations into collaborative wins. It's about staying clear, grounded, and having fun along the way.
-        </p>
-      </div>
-    </section>
+        {/* Philosophy / The Problem */}
+        <section
+            class="relative py-32 px-4 overflow-hidden border-y border-boho-wheat/50 shadow-inner bg-pattern"
+        >
+            <div class="absolute inset-0 z-0">
+                <Image
+                    src={import("../assets/images/about-wyoming.jpg")}
+                    alt="Afton, Wyoming Nature"
+                    class="w-full h-full object-cover opacity-60 scale-105 mix-blend-overlay"
+                />
+                <div
+                    class="absolute inset-0 bg-gradient-to-r from-boho-navy/95 to-boho-denim/90"
+                >
+                </div>
+            </div>
+            <div class="relative z-10 max-w-4xl mx-auto text-center text-white">
+                <h2
+                    class="text-4xl md:text-5xl font-bold mb-8 uppercase tracking-wider text-white drop-shadow-md"
+                >
+                    Our Core Philosophy
+                </h2>
+                <p
+                    class="text-xl md:text-2xl leading-relaxed font-sans max-w-3xl mx-auto text-white drop-shadow-sm font-medium"
+                >
+                    We believe that great work happens when people feel
+                    understood, not judged. By breaking down communication
+                    barriers and teaching real-world resilience, we help you
+                    turn chaotic situations into collaborative wins. It's about
+                    staying clear, grounded, and having fun along the way.
+                </p>
+            </div>
+        </section>
 
-    {/* About the Founders */}
-    <section id="about" class="py-24 px-4 relative">
-      <div class="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-white to-transparent z-0 pointer-events-none"></div>
-      <div class="max-w-6xl mx-auto relative z-10">
-        <h2 class="text-4xl md:text-5xl font-bold text-center text-boho-navy mb-16 uppercase tracking-wider">About the Founders</h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-8">
-          <a href="/about/susan" class="bg-white p-8 border-4 border-boho-navy rounded-sm shadow-[8px_8px_0px_#C5A059] flex flex-col hover:-translate-y-2 hover:shadow-[12px_12px_0px_#C5A059] transition-all relative group block">
-            <div class="absolute -top-6 -left-6 bg-boho-gold text-boho-navy px-4 py-2 font-bold font-barlow tracking-widest uppercase border-2 border-boho-navy transform -rotate-3">The Hustler</div>
-            <h3 class="text-4xl font-bold text-boho-navy mt-4 mb-2 uppercase tracking-wide">Susan Hale</h3>
-            <p class="text-sm font-bold text-boho-denim uppercase tracking-widest mb-6 border-b-2 border-boho-wheat pb-4">Escalation Intelligence</p>
-            <p class="text-boho-navy/80 leading-relaxed font-sans mb-4 flex-grow font-medium">
-              Susan draws on her deep background in critical thinking, crisis management and emergency response to develop and teach Escalation Intelligence and Credibility Dynamics
-More importantly, she brings the warmth and insight of a Master of Acupuncture, helping people navigate tricky spaces with ethical clarity, deep focus and presence, and a whole lot of heart.
+        {/* About the Founders */}
+        <section id="about" class="py-24 px-4 relative">
+            <div
+                class="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-white to-transparent z-0 pointer-events-none"
+            >
+            </div>
+            <div class="max-w-6xl mx-auto relative z-10">
+                <h2
+                    class="text-4xl md:text-5xl font-bold text-center text-boho-navy mb-16 uppercase tracking-wider"
+                >
+                    About the Founders
+                </h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-8">
+                    <a
+                        href="/about/susan"
+                        class="bg-white p-8 border-4 border-boho-navy rounded-sm shadow-[8px_8px_0px_#C5A059] flex flex-col hover:-translate-y-2 hover:shadow-[12px_12px_0px_#C5A059] transition-all relative group block"
+                    >
+                        <div
+                            class="absolute -top-6 -left-6 bg-boho-gold text-boho-navy px-4 py-2 font-bold font-barlow tracking-widest uppercase border-2 border-boho-navy transform -rotate-3"
+                        >
+                            The Hustler
+                        </div>
+                        <h3
+                            class="text-4xl font-bold text-boho-navy mt-4 mb-2 uppercase tracking-wide"
+                        >
+                            Susan Hale
+                        </h3>
+                        <p
+                            class="text-sm font-bold text-boho-denim uppercase tracking-widest mb-6 border-b-2 border-boho-wheat pb-4"
+                        >
+                            Escalation Intelligence
+                        </p>
+                        <p
+                            class="text-boho-navy/80 leading-relaxed font-sans mb-4 flex-grow font-medium"
+                        >
+                            Susan draws on her deep background in critical
+                            thinking, crisis management, and military and
+                            emergency response to develop and teach Escalation
+                            Intelligence and Credibility Dynamics. More
+                            importantly, she brings the warmth and insight of a
+                            Master of Acupuncture, helping people navigate
+                            complex situations with ethical clarity, deep focus,
+                            presence, and a whole lot of heart.
+                        </p>
+                        <span
+                            class="inline-block mt-4 text-boho-navy font-bold tracking-widest uppercase group-hover:text-boho-gold transition-colors border-b-2 border-boho-navy pb-1 w-max"
+                            >Read Susan's Story &rarr;</span
+                        >
+                    </a>
+
+                    <a
+                        href="/about/alvin"
+                        class="bg-white p-8 border-4 border-boho-navy rounded-sm shadow-[8px_8px_0px_#4A6A8A] flex flex-col hover:-translate-y-2 hover:shadow-[12px_12px_0px_#4A6A8A] transition-all relative mt-8 md:mt-0 group block"
+                    >
+                        <div
+                            class="absolute -top-6 -right-6 bg-boho-denim text-white px-4 py-2 font-bold font-barlow tracking-widest uppercase border-2 border-boho-navy transform rotate-3"
+                        >
+                            The Hacker/Designer
+                        </div>
+                        <h3
+                            class="text-4xl font-bold text-boho-navy mt-4 mb-2 uppercase tracking-wide"
+                        >
+                            Alvin Tolentino
+                        </h3>
+                        <p
+                            class="text-sm font-bold text-boho-denim uppercase tracking-widest mb-6 border-b-2 border-boho-wheat pb-4"
+                        >
+                            Fractional VP of Engineering
+                        </p>
+                        <p
+                            class="text-boho-navy/80 leading-relaxed font-sans mb-4 flex-grow font-medium"
+                        >
+                            The technical backbone of Star and Stream, Alvin is
+                            a Systems Architect with deep experience navigating
+                            fast-paced, complex environments. He approaches
+                            technical problem-solving with a highly
+                            human-centric lens, teaching others how to build
+                            collaborative momentum, reliability, and operational
+                            stability with a smile.
+                        </p>
+                        <span
+                            class="inline-block mt-4 text-boho-navy font-bold tracking-widest uppercase group-hover:text-boho-gold transition-colors border-b-2 border-boho-navy pb-1 w-max"
+                            >Read Alvin's Story &rarr;</span
+                        >
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        {/* Services React Component */}
+        <Services client:load />
+
+        {/* Why Work With Us */}
+        <section
+            class="relative py-32 px-4 overflow-hidden border-y border-boho-wheat/50"
+        >
+            <div class="absolute inset-0 z-0">
+                <Image
+                    src={import("../assets/images/afton-valley.jpg")}
+                    alt="Star Valley Wyoming"
+                    class="w-full h-full object-cover opacity-50"
+                />
+                <div class="absolute inset-0 bg-boho-navy/90"></div>
+            </div>
+            <div class="relative z-10 max-w-6xl mx-auto">
+                <h2
+                    class="text-4xl md:text-5xl font-bold text-center mb-16 uppercase tracking-wider text-white drop-shadow-md"
+                >
+                    Why Work With Us?
+                </h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div
+                        class="bg-boho-navy/90 p-8 rounded-sm border-2 border-boho-wheat/50 hover:border-boho-gold transition-colors shadow-sm"
+                    >
+                        <h3
+                            class="text-2xl font-bold text-boho-gold mb-4 uppercase tracking-wide"
+                        >
+                            Real-World Experience
+                        </h3>
+                        <p
+                            class="text-white/90 leading-relaxed font-sans text-lg"
+                        >
+                            Solutions born from decades of navigating high-level
+                            tech environments, emergency response, and community
+                            building.
+                        </p>
+                    </div>
+                    <div
+                        class="bg-boho-navy/90 p-8 rounded-sm border-2 border-boho-wheat/50 hover:border-boho-gold transition-colors shadow-sm"
+                    >
+                        <h3
+                            class="text-2xl font-bold text-boho-gold mb-4 uppercase tracking-wide"
+                        >
+                            Neutrality & Evidence
+                        </h3>
+                        <p
+                            class="text-white/90 leading-relaxed font-sans text-lg"
+                        >
+                            We teach you how to redirect conversations toward
+                            fair evaluation standards and strip away emotional
+                            bias.
+                        </p>
+                    </div>
+                    <div
+                        class="bg-boho-navy/90 p-8 rounded-sm border-2 border-boho-wheat/50 hover:border-boho-gold transition-colors shadow-sm"
+                    >
+                        <h3
+                            class="text-2xl font-bold text-boho-gold mb-4 uppercase tracking-wide"
+                        >
+                            Radical Resilience
+                        </h3>
+                        <p
+                            class="text-white/90 leading-relaxed font-sans text-lg"
+                        >
+                            With backgrounds spanning clinical wellness to
+                            executive tech leadership, we guide teams through
+                            rapid change with confidence and optimism.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        {/* Contact React Component */}
+        <ContactForm client:load />
+
+        {/* Footer */}
+        <footer
+            class="bg-boho-navy border-t border-white/10 py-8 text-center text-white/50 font-sans text-sm"
+        >
+            <p>
+                &copy; {new Date().getFullYear()} Star and Stream. All rights reserved.
             </p>
-            <span class="inline-block mt-4 text-boho-navy font-bold tracking-widest uppercase group-hover:text-boho-gold transition-colors border-b-2 border-boho-navy pb-1 w-max">Read Susan's Story &rarr;</span>
-          </a>
-
-          <a href="/about/alvin" class="bg-white p-8 border-4 border-boho-navy rounded-sm shadow-[8px_8px_0px_#4A6A8A] flex flex-col hover:-translate-y-2 hover:shadow-[12px_12px_0px_#4A6A8A] transition-all relative mt-8 md:mt-0 group block">
-            <div class="absolute -top-6 -right-6 bg-boho-denim text-white px-4 py-2 font-bold font-barlow tracking-widest uppercase border-2 border-boho-navy transform rotate-3">The Hacker/Designer</div>
-            <h3 class="text-4xl font-bold text-boho-navy mt-4 mb-2 uppercase tracking-wide">Alvin Tolentino</h3>
-            <p class="text-sm font-bold text-boho-denim uppercase tracking-widest mb-6 border-b-2 border-boho-wheat pb-4">Fractional VP of Engineering</p>
-            <p class="text-boho-navy/80 leading-relaxed font-sans mb-4 flex-grow font-medium">
-              The technical backbone of Star and Stream, Alvin is a Systems Architect with deep experience navigating fast-paced, complex environments. He approaches technical problem-solving with a highly human-centric lens, teaching others how to build collaborative momentum, reliability, and operational stability with a smile.
-            </p>
-            <span class="inline-block mt-4 text-boho-navy font-bold tracking-widest uppercase group-hover:text-boho-gold transition-colors border-b-2 border-boho-navy pb-1 w-max">Read Alvin's Story &rarr;</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    {/* Services React Component */}
-    <Services client:load />
-
-    {/* Why Work With Us */}
-    <section class="relative py-32 px-4 overflow-hidden border-y border-boho-wheat/50">
-      <div class="absolute inset-0 z-0">
-        <Image src={import('../assets/images/afton-valley.jpg')} alt="Star Valley Wyoming" class="w-full h-full object-cover opacity-50" />
-        <div class="absolute inset-0 bg-boho-navy/90"></div>
-      </div>
-      <div class="relative z-10 max-w-6xl mx-auto">
-        <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 uppercase tracking-wider text-white drop-shadow-md">Why Work With Us?</h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-          <div class="bg-boho-navy/90 p-8 rounded-sm border-2 border-boho-wheat/50 hover:border-boho-gold transition-colors shadow-sm">
-            <h3 class="text-2xl font-bold text-boho-gold mb-4 uppercase tracking-wide">Real-World Experience</h3>
-            <p class="text-white/90 leading-relaxed font-sans text-lg">
-              Solutions born from decades of navigating high-level tech environments, emergency response, and community building.
-            </p>
-          </div>
-          <div class="bg-boho-navy/90 p-8 rounded-sm border-2 border-boho-wheat/50 hover:border-boho-gold transition-colors shadow-sm">
-            <h3 class="text-2xl font-bold text-boho-gold mb-4 uppercase tracking-wide">Neutrality & Evidence</h3>
-            <p class="text-white/90 leading-relaxed font-sans text-lg">
-              We teach you how to redirect conversations toward fair evaluation standards and strip away emotional bias.
-            </p>
-          </div>
-          <div class="bg-boho-navy/90 p-8 rounded-sm border-2 border-boho-wheat/50 hover:border-boho-gold transition-colors shadow-sm">
-            <h3 class="text-2xl font-bold text-boho-gold mb-4 uppercase tracking-wide">Radical Resilience</h3>
-            <p class="text-white/90 leading-relaxed font-sans text-lg">
-              With backgrounds spanning clinical wellness to executive tech leadership, we guide teams through rapid change with confidence and optimism.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    {/* Contact React Component */}
-    <ContactForm client:load />
-
-    {/* Footer */}
-    <footer class="bg-boho-navy border-t border-white/10 py-8 text-center text-white/50 font-sans text-sm">
-      <p>&copy; {new Date().getFullYear()} Star and Stream. All rights reserved.</p>
-    </footer>
-  </main>
+        </footer>
+    </main>
 </Layout>
