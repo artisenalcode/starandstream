@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://starandstream.com/sitemap-index.xml

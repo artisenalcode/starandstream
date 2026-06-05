@@ -25,7 +25,9 @@ export default function ContactForm() {
         setStatus('success')
         e.currentTarget.reset()
       } else {
+        const _data = await response.json()
         setStatus('error')
+        // Could surface _data.error to the user here if desired
       }
     } catch {
       setStatus('error')

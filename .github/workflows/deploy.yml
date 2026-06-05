@@ -27,6 +27,9 @@ jobs:
                 git clone git@github.com:artisenalcode/starandstream.git . || echo "Please make sure the VPS has an SSH key added to the repo"
             fi
 
+            # Write .env from GitHub Secret (not committed to repo)
+            echo "${{ secrets.VPS_ENV_FILE }}" > .env
+
             # Setup bun environment (assuming it was installed for the dev user)
             export PATH="$HOME/.bun/bin:$PATH"
 
@@ -50,6 +53,9 @@ jobs:
             if [ ! -d "/data/certbot/conf/live/starandstream.com" ]; then
                 podman exec certbot certbot certonly --webroot -w /var/www/certbot -d starandstream.com --non-interactive --agree-tos -m contact@starandstream.com || true
             fi
+
+            # Attempt certificate renewal (no-op if still valid)
+            podman exec certbot certbot renew --webroot -w /var/www/certbot --non-interactive --deploy-hook "podman exec nginx nginx -s reload" || true
 
             # Reload Nginx to apply changes
             podman exec nginx nginx -s reload

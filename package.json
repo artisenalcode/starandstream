@@ -7,13 +7,10 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "lint": "oxlint",
-    "lint:fix": "oxlint --fix",
-    "format": "oxfmt --write .",
-    "prepare": "husky",
-    "deploy": "./deploy.sh",
-    "deploy:s3": "./deploy.sh",
-    "deploy:docker": "./deploy-docker.sh",
+    "lint": "vp lint",
+    "lint:fix": "vp lint --fix",
+    "format": "vp fmt --write .",
+    "prepare": "vp config",
     "docker:up": "docker-compose up -d",
     "docker:down": "docker-compose down",
     "docker:logs": "docker-compose logs -f",
@@ -21,37 +18,36 @@
   },
   "dependencies": {
     "@astrojs/node": "^10.0.4",
-    "@aws-sdk/client-sesv2": "^3.1022.0",
+    "@astrojs/sitemap": "^3.7.3",
     "astro": "^6.1.3",
     "framer-motion": "^12.34.3",
     "lucide-react": "^0.575.0",
+    "nodemailer": "^8.0.10",
     "react": "^19.2.4",
     "react-dom": "^19.2.4"
   },
   "devDependencies": {
     "@astrojs/react": "^5.0.2",
     "@tailwindcss/vite": "^4.2.1",
+    "@types/node": "^25.9.1",
+    "@types/nodemailer": "^8.0.0",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
     "@vitejs/plugin-react": "^5.1.4",
-    "husky": "^9.1.7",
     "jsdom": "^28.1.0",
-    "lint-staged": "^16.2.7",
-    "oxfmt": "^0.35.0",
-    "oxlint": "^1.50.0",
     "tailwindcss": "^4.2.1",
-    "vitest": "^4.0.18",
-    "@types/bun": "latest"
-  },
-  "lint-staged": {
-    "*.{js,ts,tsx,astro}": [
-      "oxlint --fix",
-      "oxfmt --write"
-    ]
+    "vitest": "npm:@voidzero-dev/vite-plus-test@latest",
+    "@types/bun": "latest",
+    "vite-plus": "latest"
   },
   "private": true,
   "peerDependencies": {
     "typescript": "^5"
+  },
+  "packageManager": "bun@1.3.14",
+  "overrides": {
+    "vite": "npm:@voidzero-dev/vite-plus-core@latest",
+    "vitest": "npm:@voidzero-dev/vite-plus-test@latest"
   }
 }
