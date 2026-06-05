@@ -1,25 +1,15 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import PreRegistrationForm from '../../components/PreRegistrationForm';
-import { Image } from 'astro:assets';
-import logoImage from '../../assets/logo.png';
+import HeroSection from '../../components/HeroSection.astro';
 ---
 
 <Layout title="Credibility Dynamics">
   <main class="bg-white">
-    {/* Hero Section */}
-    <section class="relative pt-40 pb-20 px-4 bg-boho-navy overflow-hidden">
-      <div class="absolute inset-0 z-0">
-        <Image src={import('../../assets/images/teutons-afton-wyoming.png')} alt="Wyoming Landscape" class="w-full h-full object-cover opacity-30 grayscale" />
-        <div class="absolute inset-0 bg-boho-navy/80 mix-blend-multiply"></div>
-      </div>
-      <div class="relative z-10 max-w-4xl mx-auto text-center text-white">
-        <h1 class="text-5xl md:text-6xl font-bold mb-6 uppercase tracking-widest drop-shadow-md">Credibility Dynamics</h1>
-        <p class="text-xl text-white/90 max-w-2xl mx-auto font-sans font-medium drop-shadow-sm">
-          Most training programs focus on reducing bias or improving communication. We focus on what happens when credibility itself becomes distorted.
-        </p>
-      </div>
-    </section>
+    <HeroSection
+      title="Credibility Dynamics"
+      subtitle="Most training programs focus on reducing bias or improving communication. We focus on what happens when credibility itself becomes distorted."
+    />
 
     {/* Course Details */}
     <section class="py-20 px-4">
@@ -45,7 +35,7 @@ import logoImage from '../../assets/logo.png';
             <li>Make decisions based on evidence and context, even when information is incomplete or ambiguous.</li>
           </ul>
         </div>
-        
+
         <div class="bg-boho-denim/10 p-8 border-l-4 border-boho-denim mb-20">
           <h3 class="text-2xl font-bold text-boho-navy mb-4 uppercase tracking-wide">Core Skill of the Course</h3>
           <p class="text-xl text-boho-navy/80 font-sans font-medium">
