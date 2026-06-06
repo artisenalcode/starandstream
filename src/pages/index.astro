@@ -4,8 +4,6 @@ import { Image } from "astro:assets";
 import ContactForm from "../components/ContactForm";
 import Layout from "../layouts/Layout.astro";
 import Services from "../components/Services";
-import Footer from "../components/Footer.astro";
-import logoImage from "../assets/logo.png";
 ---
 
 <Layout title="Home">
@@ -193,7 +191,7 @@ import logoImage from "../assets/logo.png";
         </section>
 
         {/* Services React Component */}
-        <Services client:load />
+        <Services />
 
         {/* Why Work With Us */}
         <section
@@ -269,7 +267,5 @@ import logoImage from "../assets/logo.png";
 
         {/* Contact React Component */}
         <ContactForm client:load />
-
-        <Footer />
     </main>
 </Layout>

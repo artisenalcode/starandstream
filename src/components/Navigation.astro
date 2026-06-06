@@ -8,6 +8,14 @@ export interface Props {
 
 const { currentPath = '/' } = Astro.props;
 const contactHref = currentPath === '/' ? '#contact' : '/#contact';
+const aboutHref = currentPath === '/' ? '#about' : '/#about';
+
+const dropdownLinks = [
+  { label: 'Credibility Dynamics', href: '/courses/credibility-dynamics' },
+  { label: 'Escalation Intelligence', href: '/courses/escalation-intelligence' },
+  { label: 'Work Ready Bootcamp', href: '/courses/work-ready-bootcamp' },
+  { label: 'Fractional VP Engineering', href: '/services/fractional-vp-engineering' }
+];
 ---
 
 <header class="w-full py-4 px-6 absolute top-0 z-50 flex items-center justify-between border-b border-white/20 bg-boho-navy/80 backdrop-blur-md text-white">
@@ -17,16 +25,17 @@ const contactHref = currentPath === '/' ? '#contact' : '/#contact';
   </a>
 
   <nav class="hidden md:flex items-center gap-8 font-sans text-sm tracking-wide">
-    <a href="/#about" class="hover:text-boho-wheat transition-colors">About Us</a>
+    <a href={aboutHref} class="hover:text-boho-wheat transition-colors">About Us</a>
     <div class="relative group">
-      <button class="flex items-center gap-1 hover:text-boho-wheat transition-colors">
+      <button type="button" class="flex items-center gap-1 hover:text-boho-wheat transition-colors">
         Courses & Services
       </button>
       <div class="absolute top-full right-0 mt-4 w-64 bg-white text-boho-navy border border-boho-wheat/40 rounded-sm shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 flex flex-col">
-        <a href="/courses/credibility-dynamics" class="px-4 py-3 hover:bg-boho-wheat/10 transition-colors border-b border-boho-wheat/20">Credibility Dynamics</a>
-        <a href="/courses/escalation-intelligence" class="px-4 py-3 hover:bg-boho-wheat/10 transition-colors border-b border-boho-wheat/20">Escalation Intelligence</a>
-        <a href="/courses/work-ready-bootcamp" class="px-4 py-3 hover:bg-boho-wheat/10 transition-colors border-b border-boho-wheat/20">Work Ready Bootcamp</a>
-        <a href="/services/fractional-vp-engineering" class="px-4 py-3 hover:bg-boho-wheat/10 transition-colors">Fractional VP Engineering</a>
+        {dropdownLinks.map((link, i) => (
+          <a href={link.href} class={`px-4 py-3 hover:bg-boho-wheat/10 transition-colors ${i < dropdownLinks.length - 1 ? 'border-b border-boho-wheat/20' : ''}`}>
+            {link.label}
+          </a>
+        ))}
       </div>
     </div>
     <a href={contactHref} class="hover:text-boho-wheat transition-colors">Contact</a>
