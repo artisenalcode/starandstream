@@ -1,6 +1,13 @@
+import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite-plus'
 
 export default defineConfig({
+  plugins: [react()],
+  test: {
+    environment: 'jsdom',
+    setupFiles: ['./tests/setup.ts'],
+    include: ['tests/**/*.test.{ts,tsx}']
+  },
   fmt: {
     semi: false,
     singleQuote: true,

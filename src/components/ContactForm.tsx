@@ -3,6 +3,10 @@ import React, { useState } from 'react'
 export default function ContactForm() {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
 
+  const resetForm = () => {
+    setStatus('idle')
+  }
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setStatus('submitting')
@@ -23,11 +27,14 @@ export default function ContactForm() {
 
       if (response.ok) {
         setStatus('success')
-        e.currentTarget.reset()
+        try {
+          e.currentTarget.reset()
+        } catch {
+          /* form may be unmounted in StrictMode */
+        }
       } else {
         const _data = await response.json()
         setStatus('error')
-        // Could surface _data.error to the user here if desired
       }
     } catch {
       setStatus('error')
@@ -113,9 +120,18 @@ export default function ContactForm() {
           </button>
 
           {status === 'success' && (
-            <p className="text-green-600 text-center mt-4 text-sm">
-              Thank you for reaching out. We will get back to you shortly.
-            </p>
+            <div className="text-center mt-4 space-y-3">
+              <p className="text-green-600 text-sm">
+                Thank you for reaching out. We will get back to you shortly.
+              </p>
+              <button
+                type="button"
+                onClick={resetForm}
+                className="text-boho-gold text-sm font-bold uppercase tracking-widest hover:text-boho-navy transition-colors underline underline-offset-4"
+              >
+                Send Another Message
+              </button>
+            </div>
           )}
           {status === 'error' && (
             <p className="text-red-600 text-center mt-4 text-sm">

@@ -11,6 +11,10 @@ export default function PreRegistrationForm({
 }: PreRegistrationFormProps) {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
 
+  const resetForm = () => {
+    setStatus('idle')
+  }
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setStatus('submitting')
@@ -33,7 +37,11 @@ export default function PreRegistrationForm({
 
       if (response.ok) {
         setStatus('success')
-        e.currentTarget.reset()
+        try {
+          e.currentTarget.reset()
+        } catch {
+          /* form may be unmounted in StrictMode */
+        }
       } else {
         const _data = await response.json()
         setStatus('error')
@@ -143,9 +151,18 @@ export default function PreRegistrationForm({
         </button>
 
         {status === 'success' && (
-          <p className="text-boho-denim text-center mt-4 font-medium">
-            Thank you. We take a disciplined approach to our growth—expect an update from us soon.
-          </p>
+          <div className="text-center mt-4 space-y-3">
+            <p className="text-boho-denim font-medium">
+              Thank you. We take a disciplined approach to our growth—expect an update from us soon.
+            </p>
+            <button
+              type="button"
+              onClick={resetForm}
+              className="text-boho-gold text-sm font-bold uppercase tracking-widest hover:text-boho-navy transition-colors underline underline-offset-4"
+            >
+              Register Another
+            </button>
+          </div>
         )}
         {status === 'error' && (
           <p className="text-red-600 text-center mt-4 font-medium">
