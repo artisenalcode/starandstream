@@ -1,16 +1,23 @@
-<!--VITE PLUS START-->
+# Star and Stream — Agent Guidelines
 
-# Using Vite+, the Unified Toolchain for the Web
+This document provides essential context for AI agents working in this repository.
 
-This project is using Vite+, a unified toolchain built on top of Vite, Rolldown, Vitest, tsdown, Oxlint, Oxfmt, and Vite Task. Vite+ wraps runtime management, package management, and frontend tooling in a single global CLI called `vp`. Vite+ is distinct from Vite, and it invokes Vite through `vp dev` and `vp build`. Run `vp help` to print a list of commands and `vp <command> --help` for information about a specific command.
+## Project Overview
 
-Docs are local at `node_modules/vite-plus/docs` or online at https://viteplus.dev/guide/.
+- **Stack**: Astro, React (UI components), Tailwind CSS, Vite+
+- **Package Manager**: Bun
+- **Toolchain**: Vite+ (`vp` command)
+- **Infrastructure**: Running inside a Podman container on VPS.
 
-## Review Checklist
+## Key Architectures
 
-- [ ] Run `vp install` after pulling remote changes and before getting started.
-- [ ] Run `vp check` and `vp test` to format, lint, type check and test changes.
-- [ ] Check if there are `vite.config.ts` tasks or `package.json` scripts necessary for validation, run via `vp run <script>`.
-- [ ] If setup, runtime, or package-manager behavior looks wrong, run `vp env doctor` and include its output when asking for help.
+### 1. Form Submissions & Reverse Proxy
+All contact form (`/api/contact`) and pre-registration (`/api/register`) POST submissions are reverse-proxied by Nginx on the host directly to a centralized **`form-api`** container:
+- Proxy endpoint: `http://form-api:3000/submit/starandstream`
+- The `form-api` container reads SMTP credentials dynamically from this site's host `.env` file to handle validations, rate limiting, and email dispatch securely.
 
-<!--VITE PLUS END-->
+## Guidelines & Rules
+
+- **No Commit Footers**: Do not append automated attribution lines (such as "Generated with Crush") to git commit messages or PR bodies.
+- **Vite+ Usage**: Ensure you run `vp check` or `vp test` to lint, format, typecheck, and test modifications before concluding work.
+- **Indentation & Formatting**: Maintain existing aesthetic spacing, coding styles, and standards.
