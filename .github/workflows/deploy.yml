@@ -45,10 +45,6 @@ jobs:
             # Copy the Nginx configuration to the global Nginx conf.d directory
             cp nginx/conf.d/starandstream.com.conf /data/nginx/conf.d/
 
-            # Ensure Docker Compose / Podman is up and running with the new config and restarted to load the new server build
-            export DOCKER_HOST="unix://$XDG_RUNTIME_DIR/podman/podman.sock"
-            docker-compose up -d --force-recreate || podman-compose up -d --force-recreate || podman compose up -d --force-recreate
-
             # Attempt to request a certificate if it doesn't already exist
             if [ ! -d "/data/certbot/conf/live/starandstream.com" ]; then
                 podman exec certbot certbot certonly --webroot -w /var/www/certbot -d starandstream.com --non-interactive --agree-tos -m contact@starandstream.com || true
