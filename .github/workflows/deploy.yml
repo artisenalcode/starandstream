@@ -16,16 +16,26 @@ jobs:
           username: ${{ secrets.VPS_USERNAME }}
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
+            # Fail the job on any error instead of silently shipping a stale build
+            set -e
+
             # Navigate to the target directory
             mkdir -p /data/code/starandstream.com
             cd /data/code/starandstream.com
 
-            # Pull latest changes if directory is already a git repo, otherwise clone
-            if [ -d ".git" ]; then
-                git pull origin main
-            else
-                git clone git@github.com:artisenalcode/starandstream.git . || echo "Please make sure the VPS has an SSH key added to the repo"
+            # Clone if this isn't a git repo yet
+            if [ ! -d ".git" ]; then
+                git clone git@github.com:artisenalcode/starandstream.git .
             fi
+
+            # Force-sync to origin/main. fetch + reset (instead of `git pull`)
+            # guarantees the VPS matches the repo even if the working tree is dirty
+            # or stuck in a merge conflict — a plain pull fails on those and rebuilds
+            # old code. .env and node_modules are gitignored so they survive clean.
+            git merge --abort 2>/dev/null || true
+            git fetch --prune origin main
+            git reset --hard origin/main
+            git clean -fd
 
             # Write .env from GitHub Secret (not committed to repo)
             echo "${{ secrets.VPS_ENV_FILE }}" > .env
@@ -42,8 +52,13 @@ jobs:
             # Sync the built static files to the Nginx www directory
             rsync -avz --delete dist/ /data/nginx/www/starandstream.com/
 
-            # Copy the Nginx configuration to the global Nginx conf.d directory
-            cp nginx/conf.d/starandstream.com.conf /data/nginx/conf.d/
+            # Render the Nginx config: inject CSP hashes for the built inline
+            # scripts, then write it to the global conf.d directory. Fails the
+            # deploy (set -e) if no inline scripts are found, rather than shipping
+            # a CSP that would block the site's own scripts.
+            bun scripts/inject-csp-hashes.mjs \
+                nginx/conf.d/starandstream.com.conf \
+                /data/nginx/conf.d/starandstream.com.conf
 
             # Attempt to request a certificate if it doesn't already exist
             if [ ! -d "/data/certbot/conf/live/starandstream.com" ]; then
