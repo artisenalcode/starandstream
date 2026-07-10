@@ -75,8 +75,26 @@ jobs:
                 podman exec certbot certbot certonly --webroot -w /var/www/certbot -d starandstream.com --non-interactive --agree-tos -m contact@starandstream.com || true
             fi
 
-            # Attempt certificate renewal (no-op if still valid)
-            podman exec certbot certbot renew --webroot -w /var/www/certbot --non-interactive --deploy-hook "podman exec nginx nginx -s reload" || true
+            # Attempt certificate renewal (no-op if still valid). No --deploy-hook:
+            # the hook would run inside the certbot container, which has no podman,
+            # so it always errored. The explicit reload below applies a renewed cert.
+            podman exec certbot certbot renew --webroot -w /var/www/certbot --non-interactive || true
 
-            # Reload Nginx to apply changes
-            podman exec nginx nginx -s reload
+            # Reload Nginx to apply changes, retrying briefly. A concurrent deploy
+            # recreating a container on nginx-net can perturb the podman network DNS
+            # (aardvark) and make an immediate reload transiently fail to resolve
+            # upstreams like form-api. Retry until DNS settles; fail only on a real
+            # config error.
+            for attempt in 1 2 3 4 5; do
+                if podman exec nginx nginx -t >/dev/null 2>&1 \
+                    && podman exec nginx nginx -s reload 2>/dev/null; then
+                    echo "nginx reloaded (attempt $attempt)"
+                    break
+                fi
+                if [ "$attempt" = 5 ]; then
+                    echo "nginx reload still failing after retries; real error:" >&2
+                    podman exec nginx nginx -t
+                    exit 1
+                fi
+                sleep 3
+            done
