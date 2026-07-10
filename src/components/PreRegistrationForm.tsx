@@ -1,5 +1,12 @@
 import React, { useState } from 'react'
 
+import {
+  TURNSTILE_SITE_KEY,
+  TurnstileWidget,
+  turnstileToken,
+  useTurnstileScript
+} from './Turnstile'
+
 interface PreRegistrationFormProps {
   courseName: string
   showFeeNotice?: boolean
@@ -11,13 +18,14 @@ export default function PreRegistrationForm({
 }: PreRegistrationFormProps) {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
 
+  useTurnstileScript()
+
   const resetForm = () => {
     setStatus('idle')
   }
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setStatus('submitting')
 
     const formData = new FormData(e.currentTarget)
     const payload = {
@@ -25,8 +33,18 @@ export default function PreRegistrationForm({
       email: formData.get('email'),
       role: formData.get('role'),
       interest: formData.get('interest'),
-      courseName
+      courseName,
+      turnstileToken: turnstileToken(formData)
     }
+
+    // The invisible widget resolves asynchronously; submitting before it has
+    // written a token would fail server-side with a generic spam error.
+    if (TURNSTILE_SITE_KEY && !payload.turnstileToken) {
+      setStatus('error')
+      return
+    }
+
+    setStatus('submitting')
 
     try {
       const response = await fetch('/api/register', {
@@ -137,6 +155,8 @@ export default function PreRegistrationForm({
             className="w-full px-4 py-3 border-2 border-boho-navy rounded-sm focus:ring-0 focus:border-boho-gold outline-none resize-none transition-colors font-sans bg-boho-wheat/10"
           ></textarea>
         </div>
+
+        <TurnstileWidget action="pre_registration" />
 
         <button
           type="submit"

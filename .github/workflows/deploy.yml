@@ -37,8 +37,18 @@ jobs:
             git reset --hard origin/main
             git clean -fd
 
-            # Write .env from GitHub Secret (not committed to repo)
-            echo "${{ secrets.VPS_ENV_FILE }}" > .env
+            # Refresh the encrypted secrets store and render /data/env/*.env,
+            # which form-api mounts. The age private key exists only on this
+            # box, so GitHub Actions never handles plaintext credentials.
+            export PATH="$HOME/.local/bin:$PATH"
+            git -C /data/secrets fetch --prune origin
+            git -C /data/secrets reset --hard origin/master
+            /data/secrets/render.sh /data/env
+
+            # Drop the repo-root .env left behind by the old VPS_ENV_FILE flow.
+            # This static build needs only PUBLIC_TURNSTILE_SITE_KEY, which is
+            # committed in .env.production.
+            rm -f .env
 
             # Setup bun environment (assuming it was installed for the dev user)
             export PATH="$HOME/.bun/bin:$PATH"

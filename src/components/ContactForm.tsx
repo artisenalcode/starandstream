@@ -1,7 +1,16 @@
 import React, { useState } from 'react'
 
+import {
+  TURNSTILE_SITE_KEY,
+  TurnstileWidget,
+  turnstileToken,
+  useTurnstileScript
+} from './Turnstile'
+
 export default function ContactForm() {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
+
+  useTurnstileScript()
 
   const resetForm = () => {
     setStatus('idle')
@@ -9,14 +18,23 @@ export default function ContactForm() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setStatus('submitting')
 
     const formData = new FormData(e.currentTarget)
     const payload = {
       name: formData.get('name'),
       email: formData.get('email'),
-      message: formData.get('message')
+      message: formData.get('message'),
+      turnstileToken: turnstileToken(formData)
     }
+
+    // The invisible widget resolves asynchronously; submitting before it has
+    // written a token would fail server-side with a generic spam error.
+    if (TURNSTILE_SITE_KEY && !payload.turnstileToken) {
+      setStatus('error')
+      return
+    }
+
+    setStatus('submitting')
 
     try {
       const response = await fetch('/api/contact', {
@@ -106,6 +124,8 @@ export default function ContactForm() {
               className="w-full px-4 py-3 border-2 border-boho-navy rounded-sm focus:ring-0 focus:border-boho-gold outline-none transition-colors resize-none font-sans bg-boho-wheat/10"
             ></textarea>
           </div>
+
+          <TurnstileWidget action="contact_form" />
 
           <button
             type="submit"
