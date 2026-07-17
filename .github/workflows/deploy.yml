@@ -6,7 +6,28 @@ on:
       - main
 
 jobs:
+  version:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Bump patch version, tag, publish release notes
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          VERSION=$(npm version patch --no-git-tag-version)
+          git commit -am "chore(release): $VERSION"
+          # Annotated tag: --follow-tags only pushes annotated tags.
+          git tag -a "$VERSION" -m "$VERSION"
+          git push origin main --follow-tags
+          # Release notes auto-generated from commits since the last release.
+          gh release create "$VERSION" --generate-notes --title "$VERSION"
+
   deploy:
+    needs: version
     runs-on: ubuntu-latest
     steps:
       - name: Execute remote ssh commands to deploy
